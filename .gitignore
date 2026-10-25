@@ -1,0 +1,22 @@
+# Agent metadata & conversation caches (Must not be tracked in public release)
+.agents/
+.agents.prev_crashed/
+
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor and OS artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.tmp
+
+# Local build artifacts & logs
+*.log
