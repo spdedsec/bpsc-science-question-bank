@@ -491,10 +491,13 @@ class TestTier4PDFCompilationAndIntegration(unittest.TestCase):
         self.assertIn("master of everything", tmpl_content)
         self.assertNotIn("BPSC Strategist", tmpl_content)
         self.assertNotIn("Coaching Guru", tmpl_content)
+        self.assertNotIn("Student Mentor", tmpl_content)
+        self.assertNotIn("peer mentor", tmpl_content)
 
         # Check humble framing in README
         self.assertIn("not a master of everything", readme_content)
         self.assertNotIn("BPSC Strategist", readme_content)
+        self.assertNotIn("Student Mentor", readme_content)
 
     def test_psychological_guide_integration(self):
         """Pedagogical guide must provide active recall, spaced repetition, mnemonics, and negative marking strategy."""

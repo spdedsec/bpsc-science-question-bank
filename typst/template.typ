@@ -20,8 +20,9 @@
     header: context {
       let page-num = counter(page).get().first()
       let last-page = counter(page).final().first()
-      // Display running header after front matter (page > 4) and before back cover
-      if page-num > 4 and page-num < last-page [
+      let has-chapter = query(heading.where(level: 1)).any(h => h.location().page() == page-num)
+      // Display running header on content pages (after front matter, page > 10) and before back cover, excluding chapter start pages
+      if page-num > 10 and page-num < last-page and not has-chapter [
         #grid(
           columns: (1fr, 1fr),
           align(left)[#text(size: 7.2pt, fill: rgb("#475569"), weight: "medium")[BPSC General Science Question Bank • सामान्य विज्ञान]],
@@ -53,6 +54,14 @@
   )
 
   set par(justify: true, leading: 0.58em)
+
+  show outline.entry.where(level: 1): it => {
+    v(3.5pt, weak: true)
+    text(weight: "bold", fill: rgb("#0f172a"))[#it]
+  }
+  show outline.entry.where(level: 2): it => {
+    text(size: 8.2pt, fill: rgb("#334155"))[#it]
+  }
 
   body
 }
@@ -356,7 +365,7 @@
   ]
 
   v(6pt)
-  heading(level: 2)[1. सक्रिय स्मरण एवं प्रत्यक्ष प्रश्नोत्तर का संज्ञानात्मक विज्ञान / Active Recall & Direct Q&A]
+  heading(level: 2, outlined: false)[1. सक्रिय स्मरण एवं प्रत्यक्ष प्रश्नोत्तर का संज्ञानात्मक विज्ञान / Active Recall & Direct Q&A]
   v(2pt)
   text(size: 8.6pt)[
     संज्ञानात्मक मनोविज्ञान (Cognitive Psychology) के अग्रणी शोधकर्ता रोडिगर एवं कार्पिक (Roediger & Karpicke, 2006) द्वारा प्रतिपादित *परीक्षण प्रभाव (The Testing Effect)* यह सिद्ध करता है कि किसी तथ्य को मात्र बार-बार पढ़ने की तुलना में सक्रिय रूप से याद करने (Active Retrieval) से न्यूरल सिनैप्स कई गुना अधिक सुदृढ़ होते हैं।
@@ -384,7 +393,7 @@
   )
 
   v(6pt)
-  heading(level: 2)[2. वैज्ञानिक अंतराल पुनरावृत्ति / Spaced Repetition (The 1-3-7-21 Day Algorithm)]
+  heading(level: 2, outlined: false)[2. वैज्ञानिक अंतराल पुनरावृत्ति / Spaced Repetition (The 1-3-7-21 Day Algorithm)]
   v(2pt)
   text(size: 8.6pt)[
     जर्मन मनोवैज्ञानिक हर्मन एबिंगहॉस (Hermann Ebbinghaus) के *विस्मृति वक्र (Forgetting Curve)* के अनुसार, बिना दोहरान के मनुष्य किसी भी नए पढ़े गए विषय का लगभग 70% भाग मात्र 48 घंटों के भीतर भूल जाता है।
@@ -398,7 +407,7 @@
 
   pagebreak()
 
-  heading(level: 2)[3. विज्ञान स्मृति सूत्र एवं निमोनिक तकनीकें / High-Yield Science Mnemonics & Memory Hacks]
+  heading(level: 2, outlined: false)[3. विज्ञान स्मृति सूत्र एवं निमोनिक तकनीकें / High-Yield Science Mnemonics & Memory Hacks]
   v(3pt)
   text(size: 8.8pt)[
     एलन पाइवियो (Allan Paivio) का *द्वि-कोडिंग सिद्धांत (Dual-Coding Theory)* यह दर्शाता है कि जब किसी तथ्य को शाब्दिक (Verbal) और चित्रात्मक/ध्वन्यात्मक (Visual/Phonetic) दोनों रूपों में कोड किया जाता है, तो उसकी स्मरण दर 80% बढ़ जाती है। BPSC सामान्य विज्ञान के सर्वाधिक पूछे जाने वाले संशयकारी विषयों हेतु प्रामाणिक स्मृति सूत्र:
@@ -446,7 +455,7 @@
 
   pagebreak()
 
-  heading(level: 2)[4. ऋणात्मक अंकन (-0.33) प्रबंधन एवं परीक्षा निर्णय विज्ञान / Negative Marking Mathematics]
+  heading(level: 2, outlined: false)[4. ऋणात्मक अंकन (-0.33) प्रबंधन एवं परीक्षा निर्णय विज्ञान / Negative Marking Mathematics]
   v(3pt)
   text(size: 8.8pt)[
     69वीं एवं 70वीं BPSC CCE में प्रत्येक गलत उत्तर पर *0.33 अंक (एक-तिहाई ऋणात्मक अंकन)* काटा जाता है। अंधाधुंध तुक्का लगाना (Blind Guessing) सांख्यिकीय रूप से भारी क्षति पहुंचाता है। नीचे दिए गए सांख्यिकीय प्रत्याशा मान (Expected Value) के अनुसार निर्णय लें:
@@ -481,7 +490,7 @@
   ]
 
   v(6pt)
-  heading(level: 2)[5. परीक्षा तनाव, कॉर्टिसोल नियंत्रण एवं मानसिक संतुलन / Combating Exam Anxiety & Cortisol Control]
+  heading(level: 2, outlined: false)[5. परीक्षा तनाव, कॉर्टिसोल नियंत्रण एवं मानसिक संतुलन / Combating Exam Anxiety & Cortisol Control]
   v(3pt)
   text(size: 8.8pt)[
     - *यर्केस-डॉडसन नियम (Yerkes-Dodson Law):* थोड़ी सी उत्तेजना सतर्कता बढ़ाती है, परंतु अत्यधिक चिंता मस्तिष्क के प्री-फ्रंटल कॉर्टेक्स को जाम कर देती है। परीक्षा के दौरान शांत चित्त ही श्रेष्ठतम विश्लेषणात्मक क्षमता प्रदान करता है।
@@ -490,7 +499,7 @@
   ]
 
   v(6pt)
-  heading(level: 2)[6. दैनिक 45-मिनट विज्ञान अध्ययन समय-सारणी / Daily Science Memory Action Plan]
+  heading(level: 2, outlined: false)[6. दैनिक 45-मिनट विज्ञान अध्ययन समय-सारणी / Daily Science Memory Action Plan]
   v(3pt)
   text(size: 8.8pt)[
     - *प्रथम 15 मिनट:* पिछले दिन पढ़े गए 25 प्रश्नों का "ढकना-स्मरण-सत्यापन" विधि से त्वरित दोहरान।
@@ -731,7 +740,7 @@
         ],
         [
           #text(size: 12pt, weight: "bold", fill: rgb("#0f172a"))[#author]\
-          #text(size: 8.2pt, fill: rgb("#1e3a8a"), weight: "medium")[Compiler & Student Mentor • Fellow Civil Services Aspirant]\
+          #text(size: 8.2pt, fill: rgb("#1e3a8a"), weight: "medium")[Compiler • Fellow Civil Services Aspirant]\
           #text(size: 7.5pt, fill: rgb("#64748b"))[Patna, Bihar • GitHub: \@spdedsec • Email: legendsatya7272\@gmail.com]
         ]
       )
@@ -741,7 +750,7 @@
       #v(6pt)
       
       #text(size: 8.4pt)[
-        *सत्य प्रकाश (Satya Prakash)* एक जिज्ञासु अध्येता एवं छात्र-सहयोगी हैं, जो निरंतर प्रतियोगी परीक्षाओं की तैयारी कर रहे विद्यार्थियों की सहायता के प्रयास में संलग्न हैं।
+        *सत्य प्रकाश (Satya Prakash)* एक जिज्ञासु अध्येता एवं छात्र हैं, जो निरंतर प्रतियोगी परीक्षाओं की तैयारी कर रहे विद्यार्थियों की सहायता के प्रयास में संलग्न हैं।
 
         *एक निष्कपट स्वीकारोक्ति (A Candid Note from the Compiler):* \
         "मैं स्वयं किसी विषय का सर्वज्ञाता या कोई विशेषज्ञ होने का कोई दावा नहीं करता। हर सामान्य अभ्यर्थी की तरह मैं भी निरंतर सीख रहा हूँ और अध्ययनरत हूँ। परीक्षाओं की तैयारी के दौरान छात्रों के सामने आने वाली व्यावहारिक कठिनाइयों को देखते हुए—विशेषकर भ्रामक बहुविकल्पीय विकल्पों के कारण होने वाले संशय और नकारात्मक अंकन (-0.33) के नुकसान से बचने के लिए—मैंने यह प्रामाणिक प्रत्यक्ष प्रश्नोत्तर (Direct Q&A) बैंक संकलित किया है।
@@ -749,7 +758,7 @@
         यह संपूर्ण प्रयास केवल और केवल अपने साथी अभ्यर्थियों के सहयोग और लाभ के उद्देश्य से किया गया है, ताकि सभी को एक स्थान पर ठोस, सटीक और स्पष्ट अध्ययन सामग्री सुलभ हो सके।"
 
         *About the Compiler:* \
-        Satya Prakash is a dedicated learner and peer mentor focused simply on helping fellow students and aspirants in their exam preparation. He makes no claims of being a master of everything or an exam expert, acknowledging openly that learning is a continuous personal journey. Realizing how confusing distractor options in traditional MCQs induce hesitation and trigger heavy negative marking penalties, he undertook the compilation of this 812-question bilingual question bank genuinely for the sake and benefit of aspirants.
+        Satya Prakash is an aspirant and learner dedicated simply to helping fellow students navigate their competitive exam preparation. He emphasizes candidly that he is not a master of everything or an exam expert, recognizing openly that learning is a continuous personal journey. Observing how misleading MCQ distractors cause hesitation and induce severe negative marking penalties (-0.33), he compiled this 812-question bilingual question bank genuinely for the sake and benefit of aspirants.
       ]
     ]
   )
@@ -793,12 +802,36 @@
             • *परिशिष्ट में त्वरित पुनरावलोकन तालिकाएं:* भौतिक नियतांक, उपकरण, विटामिन और बिहार वैज्ञानिक तथ्य पत्रक।
           ]
           
-          #v(14pt)
+          #v(10pt)
           #text(size: 8.8pt, weight: "bold", fill: rgb("#86efac"))[उपयोगिता / Recommended For:]
           #v(3pt)
           #text(size: 7.5pt, fill: rgb("#cbd5e1"))[
             BPSC संयुक्त प्रतियोगिता परीक्षा (CCE Prelims), CDPO, सहायक (Assistant), सांख्यिकी अधिकारी (ASO), बिहार दरोगा (SI), तथा अन्य राज्य लोक सेवा आयोग परीक्षाओं के सामान्य विज्ञान प्रश्न-पत्र हेतु अनिवार्य संदर्भ पुस्तक।
           ]
+
+          #v(10pt)
+          #text(size: 8.8pt, weight: "bold", fill: rgb("#fde047"))[विषयवार संरचना / Discipline Breakdown:]
+          #v(4pt)
+          #grid(
+            columns: (1fr, 1fr),
+            gutter: 6pt,
+            box(fill: rgb("#1c2541"), inset: (x: 8pt, y: 5pt), radius: 3pt, stroke: 0.5pt + rgb("#38bdf8"))[
+              #text(size: 7.8pt, weight: "bold", fill: white)[भौतिक विज्ञान (Physics)] \
+              #text(size: 7pt, fill: rgb("#94a3b8"))[232 Direct Q&A • 6 Core Topics]
+            ],
+            box(fill: rgb("#1c2541"), inset: (x: 8pt, y: 5pt), radius: 3pt, stroke: 0.5pt + rgb("#38bdf8"))[
+              #text(size: 7.8pt, weight: "bold", fill: white)[रसायन विज्ञान (Chemistry)] \
+              #text(size: 7pt, fill: rgb("#94a3b8"))[225 Direct Q&A • 5 Core Topics]
+            ],
+            box(fill: rgb("#1c2541"), inset: (x: 8pt, y: 5pt), radius: 3pt, stroke: 0.5pt + rgb("#38bdf8"))[
+              #text(size: 7.8pt, weight: "bold", fill: white)[जीव विज्ञान (Biology)] \
+              #text(size: 7pt, fill: rgb("#94a3b8"))[277 Direct Q&A • 5 Core Topics]
+            ],
+            box(fill: rgb("#1c2541"), inset: (x: 8pt, y: 5pt), radius: 3pt, stroke: 0.5pt + rgb("#38bdf8"))[
+              #text(size: 7.8pt, weight: "bold", fill: white)[बिहार पर्यावरण (Bihar Science)] \
+              #text(size: 7pt, fill: rgb("#94a3b8"))[78 Direct Q&A • 4 Core Topics]
+            ],
+          )
         ]
         
         #v(1fr)

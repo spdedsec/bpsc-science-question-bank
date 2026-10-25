@@ -6,8 +6,8 @@
 [![BPSC Science Status](https://img.shields.io/badge/BPSC%20CCE-68th--70th%20Pattern-blue.svg)](https://github.com/spdedsec/bpsc-science-question-bank)
 [![Total Questions](https://img.shields.io/badge/Total%20Questions-812%20Bilingual-success.svg)](data/)
 [![MCQ Format](https://img.shields.io/badge/MCQ%20Options-Strict%200%25%20(Direct%20Q%26A)-critical.svg)](#pedagogical-rationale--the-0-mcq-methodology)
-[![PDF Compilation](https://img.shields.io/badge/PDF%20Output-353%20Pages%20(6x9%20Trade)-blueviolet.svg)](#publication-pdf-specifications)
-[![Validation Suite](https://img.shields.io/badge/Test%20Suite-22%2F22%20Passing-brightgreen.svg)](#automated-validation--testing-harness)
+[![PDF Compilation](https://img.shields.io/badge/PDF%20Output-352%20Pages%20(6x9%20Trade)-blueviolet.svg)](#publication-pdf-specifications)
+[![Validation Suite](https://img.shields.io/badge/Test%20Suite-25%2F25%20Passing-brightgreen.svg)](#automated-validation--testing-harness)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Compiler: Satya Prakash](https://img.shields.io/badge/Compiler-Satya%20Prakash%20(%40spdedsec)-orange.svg)](https://github.com/spdedsec)
 
@@ -27,7 +27,7 @@ Unlike generic market guides that republish multiple-choice questions with misle
 2. **100% Symmetrical Bilingual Text**: Every entry provides authentic English phrasing paired directly with high-standard Devanagari Hindi translation, using official civil services scientific terminology (*पारिभाषिक शब्दावली*).
 3. **Strict 0% Multiple-Choice Distractors**: Contains **zero** ABCD/E options, eliminated misleading stems (*"Which of the following"*, *"निम्नलिखित में से"*), and excised deceptive 5th options (*"None of the above / More than one of the above"*).
 4. **Dedicated Bihar Science & Environment Module**: 78 specialized questions addressing Bihar-specific epidemiology (Kala-azar, AES/Chamki Fever), hydrogeological groundwater hazards (Arsenic and Fluoride belts), agro-climatic zones, soils, GI crops, and biodiversity sanctuaries (Kabartal Wetland, Valmiki Tiger Reserve).
-5. **Typeset in Typst 0.15.1 (6" × 9" Trade Paperback)**: Modern, micro-typeset 353-page publication-ready PDF in standard 6" × 9" US Trade format featuring crisp typography, Devanagari font rendering, formal front matter, blueprint analytics, learning strategies, subject dividers, revision appendices, and back matter.
+5. **Typeset in Typst 0.15.1 (6" × 9" Trade Paperback)**: Modern, micro-typeset 352-page publication-ready PDF in standard 6" × 9" US Trade format featuring crisp typography, Devanagari font rendering, formal front matter, blueprint analytics, learning strategies, subject dividers, revision appendices, and back matter.
 
 ---
 
@@ -116,7 +116,7 @@ The primary output artifact is `bpsc_science_question_bank.pdf`, generated direc
 │ Subtitle              │ 68th–70th CCE Pattern • Authentic PYQ & Monograph│
 │ Compiler              │ Satya Prakash (@spdedsec)                      │
 │ Edition               │ First Edition (2026)                           │
-│ Total Book Pages      │ 353 Pages                                      │
+│ Total Book Pages      │ 352 Pages                                      │
 │ File Size             │ ~5.70 MB                                       │
 │ PDF Standard          │ PDF 1.7 (Tagged, Universal Accessibility)      │
 │ Paper Format          │ US Trade 6" × 9" (152.4 × 228.6 mm)            │
@@ -281,7 +281,7 @@ The script automatically:
 1. Loads and validates all 812 questions from `data/*.json`.
 2. Assembles front matter, blueprint tables, subject chapters, bilingual blocks, and appendices.
 3. Generates the Typst document `bpsc_science_question_bank.typ`.
-4. Invokes `typst compile` to produce the 353-page publication-ready PDF in 6" × 9" US Trade format.
+4. Invokes `typst compile` to produce the 352-page publication-ready PDF in 6" × 9" US Trade format.
 
 ---
 
@@ -291,8 +291,8 @@ The script automatically:
 **Satya Prakash**  
 - **GitHub**: [@spdedsec](https://github.com/spdedsec)  
 - **Email**: [legendsatya7272@gmail.com](mailto:legendsatya7272@gmail.com)  
-- **Role**: Technical Compiler & Student Mentor  
-- **Perspective**: A dedicated learner and fellow aspirant committed to helping students navigate competitive examinations. Candidly acknowledging that he is not a master of everything or an academic guru, he compiled this high-yield bilingual question bank genuinely for the benefit of fellow BPSC aspirants.
+- **Role**: Technical Compiler & Fellow Civil Services Aspirant  
+- **Perspective**: An aspirant and learner dedicated simply to helping fellow students navigate competitive examinations. Candidly acknowledging that he is not a master of everything or an academic expert, he compiled this high-yield bilingual question bank genuinely for the benefit of fellow BPSC aspirants.
 
 ### Bibliographic Citation
 ```bibtex
@@ -303,7 +303,7 @@ The script automatically:
   edition   = {First},
   publisher = {Open Civil Services Research Project},
   url       = {https://github.com/spdedsec/bpsc-science-question-bank},
-  note      = {353 pages, Bilingual English-Hindi Direct Q&A Monograph in 6" × 9" Trade Format}
+  note      = {352 pages, Bilingual English-Hindi Direct Q&A Monograph in 6" × 9" Trade Format}
 }
 ```
 
