@@ -354,6 +354,26 @@ def validate_pdf_file(pdf_path: str, min_size_bytes: int = 1000) -> Tuple[bool, 
     except Exception as e:
         errors.append(f"Failed to read PDF file '{pdf_path}': {e}")
 
+    status["pages"] = None
+    status["page_size"] = None
+
+    # Inspect PDF dimensions & pages via pdfinfo
+    try:
+        res = subprocess.run(
+            ["pdfinfo", pdf_path],
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        if res.returncode == 0:
+            for line in res.stdout.splitlines():
+                if line.startswith("Pages:"):
+                    status["pages"] = int(line.split(":")[1].strip())
+                elif line.startswith("Page size:"):
+                    status["page_size"] = line.split(":", 1)[1].strip()
+    except (FileNotFoundError, subprocess.SubprocessError):
+        pass
+
     # Text extraction smoke test if pdftotext is available
     try:
         res = subprocess.run(
@@ -422,6 +442,10 @@ def format_report_text(report: ValidationReport, show_details: bool = True) -> s
         lines.append(f"  • PDF Path     : {report.pdf_status.get('path', 'N/A')}")
         lines.append(f"  • Exists       : {report.pdf_status.get('exists')}")
         lines.append(f"  • File Size    : {report.pdf_status.get('size_bytes', 0):,} bytes")
+        if report.pdf_status.get("page_size"):
+            lines.append(f"  • Page Format  : {report.pdf_status.get('page_size')}")
+        if report.pdf_status.get("pages"):
+            lines.append(f"  • Total Pages  : {report.pdf_status.get('pages')}")
         lines.append(f"  • Header Valid : {report.pdf_status.get('valid_magic')}")
         lines.append(f"  • Trailer Valid: {report.pdf_status.get('valid_trailer')}")
         if report.pdf_status.get("text_extractable") is not None:

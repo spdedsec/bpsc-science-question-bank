@@ -429,14 +429,14 @@ class TestTier4PDFCompilationAndIntegration(unittest.TestCase):
         self.assertIn("typst", res.stdout.lower())
 
     def test_typst_bilingual_compilation_smoke(self):
-        """Typst must compile a bilingual document containing Devanagari text cleanly to PDF."""
+        """Typst must compile a bilingual 6" x 9" US Trade document containing Devanagari text cleanly to PDF."""
         with tempfile.TemporaryDirectory() as tmpdir:
             typ_path = os.path.join(tmpdir, "test.typ")
             pdf_path = os.path.join(tmpdir, "test.pdf")
 
             typ_content = (
-                '#set page(paper: "a4", margin: 2cm)\n'
-                '#set text(font: ("Liberation Sans", "Noto Sans Devanagari"), size: 11pt)\n'
+                '#set page(paper: "us-trade", margin: (x: 1.3cm, top: 1.8cm, bottom: 1.8cm))\n'
+                '#set text(font: ("Liberation Sans", "Noto Sans Devanagari"), size: 9.5pt)\n'
                 '= BPSC General Science / सामान्य विज्ञान\n'
                 'Q: What is the unit of power in the International System of Units (SI)?\n'
                 'A: The SI unit of power is the Watt (W), defined as one joule per second.\n\n'
@@ -459,6 +459,56 @@ class TestTier4PDFCompilationAndIntegration(unittest.TestCase):
             self.assertTrue(status["valid_magic"])
             self.assertTrue(status["valid_trailer"])
             self.assertGreater(status["size_bytes"], 1000)
+            if status.get("page_size"):
+                self.assertIn("432 x 648 pts", status["page_size"], "Compiled PDF must have 6\"x9\" trade dimensions (432x648 pts)")
+
+    def test_pdf_trade_paper_dimensions(self):
+        """Live PDF must strictly match 6\" × 9\" US Trade paperback format (432 × 648 pt)."""
+        pdf_file = PROJECT_ROOT / "bpsc_science_question_bank.pdf"
+        if not pdf_file.exists():
+            self.skipTest("bpsc_science_question_bank.pdf does not exist yet.")
+
+        is_valid, status, errors = validate_pdf_file(str(pdf_file))
+        self.assertTrue(is_valid, f"PDF failed validation: {errors}")
+        if status.get("page_size"):
+            self.assertIn("432 x 648 pts", status["page_size"], f"Expected 432 x 648 pts, got {status.get('page_size')}")
+
+    def test_author_bio_humble_framing(self):
+        """Author profile must frame Satya Prakash humbly (learner/student mentor, not a master of everything)."""
+        template_file = PROJECT_ROOT / "typst" / "template.typ"
+        readme_file = PROJECT_ROOT / "README.md"
+        self.assertTrue(template_file.exists(), "template.typ must exist")
+        self.assertTrue(readme_file.exists(), "README.md must exist")
+
+        with open(template_file, "r", encoding="utf-8") as f:
+            tmpl_content = f.read()
+
+        with open(readme_file, "r", encoding="utf-8") as f:
+            readme_content = f.read()
+
+        # Check humble framing in template
+        self.assertIn("सर्वज्ञाता या कोई विशेषज्ञ होने का कोई दावा नहीं", tmpl_content)
+        self.assertIn("master of everything", tmpl_content)
+        self.assertNotIn("BPSC Strategist", tmpl_content)
+        self.assertNotIn("Coaching Guru", tmpl_content)
+
+        # Check humble framing in README
+        self.assertIn("not a master of everything", readme_content)
+        self.assertNotIn("BPSC Strategist", readme_content)
+
+    def test_psychological_guide_integration(self):
+        """Pedagogical guide must provide active recall, spaced repetition, mnemonics, and negative marking strategy."""
+        template_file = PROJECT_ROOT / "typst" / "template.typ"
+        with open(template_file, "r", encoding="utf-8") as f:
+            tmpl_content = f.read()
+
+        self.assertIn("psychological-strategies-section", tmpl_content)
+        self.assertIn("Cover, Retrieve, Verify", tmpl_content)
+        self.assertIn("Spaced Repetition", tmpl_content)
+        self.assertIn("1-3-7-21", tmpl_content)
+        self.assertIn("Negative Marking", tmpl_content)
+        self.assertIn("0.33", tmpl_content)
+        self.assertIn("Mnemonic", tmpl_content)
 
     def test_live_data_and_pdf_integration(self):
         """

@@ -98,17 +98,20 @@ test_malformed_json_syntax_handled_gracefully (TestTier3ZeroMCQAndAdversarialChe
 test_reject_bpsc_option_e_distractors (TestTier3ZeroMCQAndAdversarialChecks) ... ok
 test_reject_mcq_parenthetical_options (TestTier3ZeroMCQAndAdversarialChecks) ... ok
 test_reject_mcq_stems (TestTier3ZeroMCQAndAdversarialChecks) ... ok
-test_live_data_and_pdf_integration (TestTier4PDFCompilationAndIntegration) ... skipped (milestones M1-M3 pending)
+test_author_bio_humble_framing (TestTier4PDFCompilationAndIntegration) ... ok
+test_live_data_and_pdf_integration (TestTier4PDFCompilationAndIntegration) ... ok
+test_pdf_trade_paper_dimensions (TestTier4PDFCompilationAndIntegration) ... ok
 test_pdf_validation_corrupted_header (TestTier4PDFCompilationAndIntegration) ... ok
 test_pdf_validation_missing_file (TestTier4PDFCompilationAndIntegration) ... ok
 test_pdf_validation_valid_structure (TestTier4PDFCompilationAndIntegration) ... ok
+test_psychological_guide_integration (TestTier4PDFCompilationAndIntegration) ... ok
 test_typst_bilingual_compilation_smoke (TestTier4PDFCompilationAndIntegration) ... ok
 test_typst_cli_availability (TestTier4PDFCompilationAndIntegration) ... ok
 
 ----------------------------------------------------------------------
-Ran 22 tests in 0.401s
+Ran 25 tests in 0.699s
 
-OK (skipped=1)
+OK
 ```
 
 ---

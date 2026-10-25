@@ -65,87 +65,87 @@
   exam-coverage: "56th–59th to 70th BPSC CCE Prelims",
   author: "Satya Prakash",
 ) = {
-  align(center + horizon)[
+  page(margin: 0pt, header: none, footer: none)[
     #block(
       width: 100%,
-      fill: rgb("#0f172a"),
-      inset: (x: 14pt, y: 16pt),
-      radius: 6pt,
-      stroke: 1pt + rgb("#1e293b"),
+      height: 100%,
+      fill: rgb("#0b132b"),
+      inset: (x: 20pt, top: 26pt, bottom: 22pt),
       [
-        #box(fill: rgb("#1e293b"), inset: (x: 10pt, y: 4pt), radius: 3pt)[
-          #text(size: 7.8pt, weight: "bold", fill: rgb("#38bdf8"))[BPSC CCE PRELIMS SPECIAL EDITION • #exam-coverage]
-        ]
-        
-        #v(10pt)
-        #text(size: 17pt, weight: "bold", fill: rgb("#ffffff"))[BPSC General Science \ Question Bank & Study Book]
-        
-        #v(5pt)
-        #text(size: 12.5pt, weight: "bold", fill: rgb("#f1f5f9"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
-        
-        #v(8pt)
-        #line(length: 50%, stroke: 1.5pt + rgb("#38bdf8"))
-        #v(8pt)
-        
-        #text(size: 8pt, fill: rgb("#cbd5e1"), style: "italic")[
-          Authentic Previous Year Questions & Syllabus-Adjacent High-Yield Q&A Bank \
-          विगत वर्षों के प्रामाणिक प्रश्नोत्तर एवं उच्च प्रासंगिक प्रत्यक्ष प्रश्न बैंक
-        ]
-        
-        #v(10pt)
-        #box(fill: rgb("#1e3a8a"), inset: (x: 12pt, y: 5pt), radius: 3pt, stroke: 1pt + rgb("#38bdf8"))[
-          #text(size: 9pt, weight: "bold", fill: rgb("#ffffff"))[Compiled by #author for BPSC Aspirants]
-        ]
-        
-        #v(10pt)
-        #grid(
-          columns: (1fr, 1fr),
-          gutter: 6pt,
-          box(fill: rgb("#1e293b"), inset: 6pt, radius: 3pt, width: 100%)[
-            #align(center)[
-              #text(weight: "bold", fill: rgb("#67e8f9"), size: 8.2pt)[Physics / भौतिक विज्ञान]\
-              #v(1pt)
-              #text(size: 7pt, fill: rgb("#94a3b8"))[Optics, Mechanics, Units & Heat]
+        #align(center)[
+          #box(fill: rgb("#1c2541"), inset: (x: 10pt, y: 5pt), radius: 3pt, stroke: 0.8pt + rgb("#38bdf8"))[
+            #text(size: 7.8pt, weight: "bold", fill: rgb("#38bdf8"))[BPSC CCE PRELIMS SPECIAL EDITION • #exam-coverage]
+          ]
+          
+          #v(14pt)
+          #text(size: 19pt, weight: "bold", fill: rgb("#ffffff"))[BPSC General Science \ Question Bank & Study Book]
+          
+          #v(6pt)
+          #text(size: 13.5pt, weight: "bold", fill: rgb("#f1f5f9"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
+          
+          #v(10pt)
+          #line(length: 55%, stroke: 1.5pt + rgb("#38bdf8"))
+          #v(10pt)
+          
+          #text(size: 8.2pt, fill: rgb("#cbd5e1"), style: "italic")[
+            Authentic Previous Year Questions & Syllabus-Adjacent High-Yield Q&A Bank \
+            विगत वर्षों के प्रामाणिक प्रश्नोत्तर एवं उच्च प्रासंगिक प्रत्यक्ष प्रश्न बैंक
+          ]
+          
+          #v(14pt)
+          #box(fill: rgb("#1e3a8a"), inset: (x: 14pt, y: 6pt), radius: 4pt, stroke: 1pt + rgb("#38bdf8"))[
+            #text(size: 9.5pt, weight: "bold", fill: rgb("#ffffff"))[Compiled by #author for Civil Services Aspirants]
+          ]
+          
+          #v(16pt)
+          #grid(
+            columns: (1fr, 1fr),
+            gutter: 8pt,
+            box(fill: rgb("#1c2541"), inset: 8pt, radius: 4pt, stroke: 0.5pt + rgb("#38bdf8"), width: 100%)[
+              #align(center)[
+                #text(weight: "bold", fill: rgb("#67e8f9"), size: 8.5pt)[Physics / भौतिक विज्ञान]\
+                #v(2pt)
+                #text(size: 7pt, fill: rgb("#94a3b8"))[Optics, Mechanics, Units & Heat]
+              ]
+            ],
+            box(fill: rgb("#1c2541"), inset: 8pt, radius: 4pt, stroke: 0.5pt + rgb("#38bdf8"), width: 100%)[
+              #align(center)[
+                #text(weight: "bold", fill: rgb("#67e8f9"), size: 8.5pt)[Chemistry / रसायन विज्ञान]\
+                #v(2pt)
+                #text(size: 7pt, fill: rgb("#94a3b8"))[Acids, Bases, Metals & Polymers]
+              ]
+            ],
+            box(fill: rgb("#1c2541"), inset: 8pt, radius: 4pt, stroke: 0.5pt + rgb("#86efac"), width: 100%)[
+              #align(center)[
+                #text(weight: "bold", fill: rgb("#86efac"), size: 8.5pt)[Biology / जीव विज्ञान]\
+                #v(2pt)
+                #text(size: 7pt, fill: rgb("#94a3b8"))[Physiology, Vitamins & Cytology]
+              ]
+            ],
+            box(fill: rgb("#1c2541"), inset: 8pt, radius: 4pt, stroke: 0.5pt + rgb("#fde047"), width: 100%)[
+              #align(center)[
+                #text(weight: "bold", fill: rgb("#fde047"), size: 8.5pt)[Bihar Science / बिहार विज्ञान]\
+                #v(2pt)
+                #text(size: 7pt, fill: rgb("#94a3b8"))[Kala-azar, AES, Arsenic & Wetlands]
+              ]
             ]
-          ],
-          box(fill: rgb("#1e293b"), inset: 6pt, radius: 3pt, width: 100%)[
-            #align(center)[
-              #text(weight: "bold", fill: rgb("#67e8f9"), size: 8.2pt)[Chemistry / रसायन विज्ञान]\
-              #v(1pt)
-              #text(size: 7pt, fill: rgb("#94a3b8"))[Acids, Bases, Metals & Polymers]
-            ]
-          ],
-          box(fill: rgb("#1e293b"), inset: 6pt, radius: 3pt, width: 100%)[
-            #align(center)[
-              #text(weight: "bold", fill: rgb("#86efac"), size: 8.2pt)[Biology / जीव विज्ञान]\
-              #v(1pt)
-              #text(size: 7pt, fill: rgb("#94a3b8"))[Physiology, Vitamins & Cytology]
-            ]
-          ],
-          box(fill: rgb("#1e293b"), inset: 6pt, radius: 3pt, width: 100%)[
-            #align(center)[
-              #text(weight: "bold", fill: rgb("#fde047"), size: 8.2pt)[Bihar Science / बिहार विज्ञान]\
-              #v(1pt)
-              #text(size: 7pt, fill: rgb("#94a3b8"))[Kala-azar, AES, Arsenic & Wetlands]
+          )
+          
+          #v(16pt)
+          #box(fill: rgb("#1c2541"), inset: (x: 12pt, y: 5pt), radius: 4pt, stroke: 0.5pt + rgb("#475569"))[
+            #text(size: 8pt, weight: "medium", fill: rgb("#f8fafc"))[
+              *Direct Q&A Format* • Zero Distractor MCQs • 100% Devanagari Hindi
             ]
           ]
-        )
-        
-        #v(10pt)
-        #box(fill: rgb("#1e293b"), inset: (x: 10pt, y: 4pt), radius: 3pt)[
-          #text(size: 7.5pt, weight: "medium", fill: rgb("#f8fafc"))[
-            *Direct Q&A Format* • Zero Distractor MCQs • 100% Devanagari Hindi
+          
+          #v(14pt)
+          #text(size: 7.8pt, fill: rgb("#94a3b8"))[
+            BPSC Civil Services Examination Series • #edition
           ]
-        ]
-        
-        #v(8pt)
-        #text(size: 7.5pt, fill: rgb("#94a3b8"))[
-          BPSC Civil Services Examination Series • #edition
         ]
       ]
     )
   ]
-  pagebreak()
 }
 
 // ---------------------------------------------------------------------------
@@ -348,36 +348,34 @@
 #let psychological-strategies-section() = {
   heading(level: 1, numbering: none)[वैज्ञानिक अध्ययन मनोविज्ञान एवं स्मृति संवर्धन सूत्र / Cognitive Learning Strategies & Memory Mastery]
 
-  v(6pt)
-  text(size: 9pt)[
+  v(4pt)
+  text(size: 8.8pt)[
     सिविल सेवा परीक्षाओं (विशेषकर आधुनिक BPSC CCE) की तैयारी केवल पुस्तकों को बार-बार पढ़ने (Passive Reading) का नाम नहीं है। मानव मस्तिष्क की संज्ञानात्मक संरचना (Cognitive Architecture) को समझे बिना की गई तैयारी समय की बर्बादी और परीक्षा कक्ष में विस्मृति (Memory Lapse) का कारण बनती है। 
     
-    प्रतियोगी परीक्षाओं में वैज्ञानिक तथ्यों के शत-प्रतिशत सटीक स्मरण, दीर्घकालिक स्मृति (Long-term Retention), तथा ऋणात्मक अंकन (-0.33) के दबाव में शांत चित्त बनाए रखने हेतु संकलनकर्ता द्वारा तैयार किए गए व्यावहारिक मनोवैज्ञानिक अध्ययन सूत्र नीचे विस्तार से प्रस्तुत हैं:
-  ]
-
-  v(8pt)
-  heading(level: 2)[1. सक्रिय स्मरण एवं प्रत्यक्ष प्रश्नोत्तर का संज्ञानात्मक विज्ञान / Active Recall & Direct Q&A]
-  v(3pt)
-  text(size: 9pt)[
-    संज्ञानात्मक मनोविज्ञान (Cognitive Psychology) के अग्रणी शोधकर्ता रोडिगर एवं कार्पिक (Roediger & Karpicke, 2006) द्वारा प्रतिपादित *परीक्षण प्रभाव (The Testing Effect)* यह सिद्ध करता है कि किसी तथ्य को मात्र बार-बार पढ़ने की तुलना में सक्रिय रूप से याद करने (Active Retrieval) से न्यूरल सिनैप्स कई गुना अधिक सुदृढ़ होते हैं।
-
-    *पारंपरिक बहुविकल्पीय भ्रम बनाम प्रत्यक्ष प्रश्नोत्तर विधि:*
-    पारंपरिक 4 या 5 विकल्पों वाले बहुविकल्पीय प्रश्नों (MCQs) को पढ़ते समय मस्तिष्क को 1 सही उत्तर के साथ 3 भ्रामक गलत विकल्प (Distractors) भी पढ़ने पड़ते हैं। यह मस्तिष्क में *प्रोएक्टिव इंटरफेरेंस (Proactive Interference)* उत्पन्न करता है, जिससे परीक्षा कक्ष के तनाव में गलत विकल्प भी सही प्रतीत होने लगता है (भ्रामक प्रवीणता / Illusion of Competence)।
-
-    प्रस्तुत पुस्तक में संकलित *0% भ्रामक विकल्प प्रत्यक्ष पद्धति (Direct Q&A Methodology)* आपके न्यूरोनल पथ में सीधे और केवल सही वैज्ञानिक सत्य को स्थापित करती है।
+    प्रतियोगी परीक्षाओं में वैज्ञानिक तथ्यों के शत-प्रतिशत सटीक स्मरण, दीर्घकालिक स्मृति (Long-term Retention), तथा ऋणात्मक अंकन (-0.33) के दबाव में शांत चित्त बनाए रखने हेतु व्यावहारिक मनोवैज्ञानिक अध्ययन सूत्र नीचे विस्तार से प्रस्तुत हैं:
   ]
 
   v(6pt)
+  heading(level: 2)[1. सक्रिय स्मरण एवं प्रत्यक्ष प्रश्नोत्तर का संज्ञानात्मक विज्ञान / Active Recall & Direct Q&A]
+  v(2pt)
+  text(size: 8.6pt)[
+    संज्ञानात्मक मनोविज्ञान (Cognitive Psychology) के अग्रणी शोधकर्ता रोडिगर एवं कार्पिक (Roediger & Karpicke, 2006) द्वारा प्रतिपादित *परीक्षण प्रभाव (The Testing Effect)* यह सिद्ध करता है कि किसी तथ्य को मात्र बार-बार पढ़ने की तुलना में सक्रिय रूप से याद करने (Active Retrieval) से न्यूरल सिनैप्स कई गुना अधिक सुदृढ़ होते हैं।
+
+    *पारंपरिक बहुविकल्पीय भ्रम बनाम प्रत्यक्ष प्रश्नोत्तर विधि:* \
+    पारंपरिक 4 या 5 विकल्पों वाले बहुविकल्पीय प्रश्नों (MCQs) को पढ़ते समय मस्तिष्क को 1 सही उत्तर के साथ 3 भ्रामक गलत विकल्प (Distractors) भी पढ़ने पड़ते हैं। यह मस्तिष्क में *प्रोएक्टिव इंटरफेरेंस (Proactive Interference)* उत्पन्न करता है, जिससे परीक्षा कक्ष के तनाव में गलत विकल्प भी सही प्रतीत होने लगता है (भ्रामक प्रवीणता / Illusion of Competence)। प्रस्तुत पुस्तक में संकलित *0% भ्रामक विकल्प प्रत्यक्ष पद्धति (Direct Q&A Methodology)* आपके न्यूरोनल पथ में सीधे और केवल सही वैज्ञानिक सत्य को स्थापित करती है।
+  ]
+
+  v(4pt)
   block(
     width: 100%,
     fill: rgb("#f1f5f9"),
     stroke: (left: 3.5pt + rgb("#1e3a8a"), rest: 0.5pt + rgb("#cbd5e1")),
-    inset: (x: 10pt, y: 8pt),
+    inset: (x: 10pt, y: 5pt),
     radius: (right: 4pt),
     [
-      #text(weight: "bold", fill: rgb("#1e3a8a"), size: 8.5pt)[इस पुस्तक के अध्ययन की त्रि-चरणीय "ढकना-स्मरण-सत्यापन" विधि (Cover, Retrieve, Verify):]
-      #v(3pt)
-      #text(size: 8.2pt)[
+      #text(weight: "bold", fill: rgb("#1e3a8a"), size: 8.3pt)[इस पुस्तक के अध्ययन की त्रि-चरणीय "ढकना-स्मरण-सत्यापन" विधि (Cover, Retrieve, Verify):]
+      #v(2pt)
+      #text(size: 8pt)[
         1. *ढकना (Cover):* प्रश्न पढ़ते ही उत्तर खंड (Ans / उ) को किसी कार्डबोर्ड या हाथ से तुरंत ढक लें।\
         2. *स्मरण (Retrieve):* अगले 5 से 8 सेकंड तक मस्तिष्क में उत्तर के मुख्य वैज्ञानिक कीवर्ड (जैसे दर्पण का प्रकार, सूत्र, या रोगजनक का नाम) को स्पष्ट रूप से रिकॉल करें।\
         3. *सत्यापन (Verify):* हाथ हटाकर उत्तर की जाँच करें। यदि स्मरण सटीक था, तो आगे बढ़ें; यदि संशय हुआ, तो प्रश्न संख्या पर पेंसिल से गोला (•) बनाकर अंतराल दोहरान के लिए चिह्नित करें।
@@ -385,10 +383,10 @@
     ]
   )
 
-  v(8pt)
+  v(6pt)
   heading(level: 2)[2. वैज्ञानिक अंतराल पुनरावृत्ति / Spaced Repetition (The 1-3-7-21 Day Algorithm)]
-  v(3pt)
-  text(size: 9pt)[
+  v(2pt)
+  text(size: 8.6pt)[
     जर्मन मनोवैज्ञानिक हर्मन एबिंगहॉस (Hermann Ebbinghaus) के *विस्मृति वक्र (Forgetting Curve)* के अनुसार, बिना दोहरान के मनुष्य किसी भी नए पढ़े गए विषय का लगभग 70% भाग मात्र 48 घंटों के भीतर भूल जाता है।
     
     इस विस्मृति को रोकने का एकमात्र अचूक अस्त्र *अंतराल पुनरावृत्ति (Spaced Repetition)* है। इस पुस्तक के 812 प्रश्नों के पूर्ण अवशोषण हेतु निम्नलिखित समय-सारणी का पालन करें:
@@ -398,11 +396,12 @@
     - *दिन 21 (स्थायी न्यूरल कंसोलिडेशन):* अंतिम रैपिड-फायर रिवीजन। इसके उपरांत यह जानकारी मस्तिष्क की दीर्घकालिक स्मृति (Long-Term Potentiation) में स्थानांतरित हो जाती है।
   ]
 
-  v(8pt)
+  pagebreak()
+
   heading(level: 2)[3. विज्ञान स्मृति सूत्र एवं निमोनिक तकनीकें / High-Yield Science Mnemonics & Memory Hacks]
   v(3pt)
-  text(size: 9pt)[
-    एलन पाइवियो (Allan Paivio) का *द्वि-कोडिंग सिद्धांत (Dual-Coding Theory)* यह दर्शाता है कि जब किसी तथ्य को शाब्दिक (Verbal) और चित्रात्मक/ध्वन्यात्मक (Visual/Phonetic) दोनों रूपों में कोड किया जाता है, तो उसकी स्मरण दर 80% बढ़ जाती है। BPSC सामान्य विज्ञान के सर्वाधिक पूछे जाने वाले संशयकारी विषयों हेतु प्रमुख स्मृति सूत्र:
+  text(size: 8.8pt)[
+    एलन पाइवियो (Allan Paivio) का *द्वि-कोडिंग सिद्धांत (Dual-Coding Theory)* यह दर्शाता है कि जब किसी तथ्य को शाब्दिक (Verbal) और चित्रात्मक/ध्वन्यात्मक (Visual/Phonetic) दोनों रूपों में कोड किया जाता है, तो उसकी स्मरण दर 80% बढ़ जाती है। BPSC सामान्य विज्ञान के सर्वाधिक पूछे जाने वाले संशयकारी विषयों हेतु प्रामाणिक स्मृति सूत्र:
   ]
 
   v(4pt)
@@ -411,41 +410,61 @@
       columns: (1.1fr, 1.3fr, 1.8fr),
       fill: (x, y) => if y == 0 { rgb("#1e3a8a") } else if calc.even(y) { rgb("#f8fafc") } else { rgb("#ffffff") },
       stroke: 0.5pt + rgb("#cbd5e1"),
-      inset: 4pt,
+      inset: 3.5pt,
       align: (col, row) => if row == 0 { center + horizon } else if col == 0 { left + horizon } else { left + horizon },
       
-      text(weight: "bold", fill: white, size: 7.2pt)[विषय (Topic)],
-      text(weight: "bold", fill: white, size: 7.2pt)[स्मरण सूत्र (Mnemonic Hook)],
-      text(weight: "bold", fill: white, size: 7.2pt)[व्याख्या एवं अनुप्रयोग (Application)],
+      text(weight: "bold", fill: white, size: 7pt)[विषय (Topic)],
+      text(weight: "bold", fill: white, size: 7pt)[स्मरण सूत्र (Mnemonic Hook)],
+      text(weight: "bold", fill: white, size: 7pt)[व्याख्या एवं अनुप्रयोग (Application)],
       
       [विटामिन घुलनशीलता], [*कीड़ा (K-E-D-A)* = वसा \ *B & C* = जल], [विटामिन K, E, D, A वसा में घुलनशील हैं। शेष विटामिन B और C जल में घुलनशील (Water-soluble) हैं।],
-      [विद्युत-चुंबकीय स्पेक्ट्रम], [*R-M-I-V-U-X-G* \ (बढ़ती आवृत्ति क्रम)], [रेडियो -> माइक्रो -> इन्फ्रारेड -> दृश्य (VIBGYOR) -> यूवी -> एक्स-रे -> गामा किरणें (गामा की ऊर्जा व आवृत्ति सर्वाधिक, तरंगदैर्घ्य न्यूनतम)।],
+      [विद्युत-चुंबकीय स्पेक्ट्रम], [*R-M-I-V-U-X-G* \ (बढ़ती आवृत्ति क्रम)], [रेडियो -> माइक्रो -> इन्फ्रारेड -> दृश्य (VIBGYOR) -> यूवी -> एक्स-रे -> गामा किरणें (गामा की ऊर्जा व आवृत्ति सर्वाधिक)।],
       [दर्पण अनुप्रयोग], [*उत्तल (Convex)* = ड्राइवर व्यू \ *अवतल (Concave)* = गुफा/डेंटिस्ट], [उत्तल दर्पण सदैव सीधा, छोटा आभासी प्रतिबिंब देता है (रियर व्यू मिरर)। अवतल बड़ा प्रतिबिंब व प्रकाश केंद्रित करता है (दाढ़ी, दंत चिकित्सक)।],
       [मिश्रधातु घटक], [*पीताजी* (पीतल = तांबा + जस्ता) \ *German Silver* = No Silver!], [पीतल (Brass) = तांबा + जिंक। जर्मन सिल्वर में तांबा + जस्ता + निकेल होता है, इसमें चांदी (0% Ag) नहीं होती।],
-      [बिहार स्थानिक रोग], [*काला बालू* (कालाजार = बालू मक्खी) \ *चमकी लीची* (AES = Hypoglycin)], [कालाजार: प्रोटोजोआ *Leishmania donovani*, वाहक: बालू मक्खी (Sandfly)। चमकी बुखार: लीची टॉक्सिन से हाइपोग्लाइसीमिया।]
+      [बिहार स्थानिक रोग], [*काला बालू* (कालाजार = बालू मक्खी) \ *चमकी लीची* (AES = Hypoglycin)], [कालाजार: प्रोटोजोआ *Leishmania donovani*, वाहक: बालू मक्खी (Sandfly)। चमकी बुखार: लीची टॉक्सिन से हाइपोग्लाइसीमिया।],
+      [पादप संवहन ऊतक], [*जाइलम = जल* (नीचे से ऊपर) \ *फ्लोएम = फल / भोजन* (उभयदिशीय)], [जाइलम जड़ से जल व खनिजों का एकदिशीय संवहन करता है। फ्लोएम पत्तियों द्वारा निर्मित शर्करा/भोजन का संपूर्ण पादप में उभयदिशीय वितरण करता है।],
+      [दृष्टि दोष एवं लेंस], [*निकट = अवतल* (3 अक्षर = 4 अक्षर) \ *दूर = उत्तल* (2 अक्षर = 3 अक्षर)], [निकट दृष्टि दोष (Myopia) के निवारण हेतु अवतल लेंस (Concave Lens); दूर दृष्टि दोष (Hypermetropia) के निवारण हेतु उत्तल लेंस (Convex Lens)।],
+      [धातु सक्रियता श्रेणी], [*K-Na-Ca-Mg-Al-Zn-Fe-Pb* \ *H-Cu-Hg-Ag-Au*], [पोटेशियम सर्वाधिक सक्रिय, सोना (Au) न्यूनतम सक्रिय। हाइड्रोजन से ऊपर की धातुएं अम्लों से $H_2$ गैस विस्थापित करती हैं।]
     )
   ]
 
-  v(8pt)
+  v(6pt)
+  block(
+    width: 100%,
+    fill: rgb("#f8fafc"),
+    stroke: (left: 3pt + rgb("#0e7490"), rest: 0.5pt + rgb("#cbd5e1")),
+    inset: (x: 10pt, y: 7pt),
+    radius: (right: 4pt),
+    [
+      #text(weight: "bold", fill: rgb("#0e7490"), size: 8.5pt)[स्मृति महल विधि (Method of Loci / Mind Palace) का अनुप्रयोग:]
+      #v(2pt)
+      #text(size: 8.2pt)[
+        जटिल जैविक प्रक्रियाओं (जैसे मानव पाचन तंत्र के एंजाइम: लार ग्रंथि $->$ जठर रस $->$ अग्न्याशय $->$ आंत्र रस) को अपने दैनिक घर के प्रवेश द्वार से अध्ययन कक्ष तक के परिचित रास्तों से जोड़कर याद करें। स्थानिक स्मृति (Spatial Memory) अमूर्त वैज्ञानिक तथ्यों को स्थायी रूप से मस्तिष्क में संचित करती है।
+      ]
+    ]
+  )
+
+  pagebreak()
+
   heading(level: 2)[4. ऋणात्मक अंकन (-0.33) प्रबंधन एवं परीक्षा निर्णय विज्ञान / Negative Marking Mathematics]
   v(3pt)
-  text(size: 9pt)[
+  text(size: 8.8pt)[
     69वीं एवं 70वीं BPSC CCE में प्रत्येक गलत उत्तर पर *0.33 अंक (एक-तिहाई ऋणात्मक अंकन)* काटा जाता है। अंधाधुंध तुक्का लगाना (Blind Guessing) सांख्यिकीय रूप से भारी क्षति पहुंचाता है। नीचे दिए गए सांख्यिकीय प्रत्याशा मान (Expected Value) के अनुसार निर्णय लें:
   ]
 
-  v(4pt)
+  v(3pt)
   align(center)[
     #table(
       columns: (1.2fr, 1fr, 0.8fr, 1.2fr),
       fill: (x, y) => if y == 0 { rgb("#1e3a8a") } else if calc.even(y) { rgb("#f8fafc") } else { rgb("#ffffff") },
       stroke: 0.5pt + rgb("#cbd5e1"),
-      inset: 4pt,
+      inset: 3.5pt,
       align: (col, row) => if row == 0 { center + horizon } else { center + horizon },
       
-      text(weight: "bold", fill: white, size: 7.2pt)[स्थिति (Scenario)],
-      text(weight: "bold", fill: white, size: 7.2pt)[प्रायिकता (Odds)],
-      text(weight: "bold", fill: white, size: 7.2pt)[प्रत्याशित मान (EV)],
-      text(weight: "bold", fill: white, size: 7.2pt)[रणनीतिक निर्देश (Action)],
+      text(weight: "bold", fill: white, size: 7pt)[स्थिति (Scenario)],
+      text(weight: "bold", fill: white, size: 7pt)[प्रायिकता (Odds)],
+      text(weight: "bold", fill: white, size: 7pt)[प्रत्याशित मान (EV)],
+      text(weight: "bold", fill: white, size: 7pt)[रणनीतिक निर्देश (Action)],
       
       [4 विकल्पों में अंधाधुंध तुक्का], [1 सही (25%), 3 गलत (75%)], [0.00 अंक], [कदापि हल न करें! (Strict Skip)],
       [1 विकल्प निश्चित बाहर (3 विकल्प शेष)], [1 सही (33%), 2 गलत (67%)], [+0.11 अंक], [केवल उच्च जोखिम क्षमता पर ही लें],
@@ -455,19 +474,28 @@
   ]
 
   v(4pt)
-  text(size: 9pt)[
-    *द्वि-चरणीय परीक्षा हल विधि (Two-Round Scan Technique):*
+  text(size: 8.8pt)[
+    *द्वि-चरणीय परीक्षा हल विधि (Two-Round Scan Technique):* \
     - *राउंड 1 (सटीक स्मरण):* प्रथम 40 मिनट में केवल उन विज्ञान प्रश्नों को हल करें जिनका उत्तर आपको प्रत्यक्ष स्मरण है। इससे 18-22 अंक तुरंत सुरक्षित हो जाएंगे और आत्मविश्वास बढ़ेगा।
     - *राउंड 2 (तार्किक उन्मूलन):* दूसरे चरण में 50-50 वाले प्रश्नों में गहन वैज्ञानिक तर्क लगाकर उत्तर दें। जिन प्रश्नों में एक भी विकल्प निष्कासित न हो, उन्हें बिना छुए छोड़ दें।
   ]
 
-  v(8pt)
+  v(6pt)
   heading(level: 2)[5. परीक्षा तनाव, कॉर्टिसोल नियंत्रण एवं मानसिक संतुलन / Combating Exam Anxiety & Cortisol Control]
   v(3pt)
-  text(size: 9pt)[
+  text(size: 8.8pt)[
     - *यर्केस-डॉडसन नियम (Yerkes-Dodson Law):* थोड़ी सी उत्तेजना सतर्कता बढ़ाती है, परंतु अत्यधिक चिंता मस्तिष्क के प्री-फ्रंटल कॉर्टेक्स को जाम कर देती है। परीक्षा के दौरान शांत चित्त ही श्रेष्ठतम विश्लेषणात्मक क्षमता प्रदान करता है।
     - *फिजियोलॉजिकल साई (Physiological Sigh):* परीक्षा कक्ष में घबराहट होते ही नाक से 2 त्वरित सांसें अंदर लें और मुँह से लंबी सांस बाहर छोड़ें। यह 30 सेकंड में हृदय गति को धीमा कर पैरासिम्पेथेटिक तंत्रिका तंत्र को सक्रिय करता है।
     - *नींद की अनिवार्यता (Sleep Consolidation):* परीक्षा की पूर्व संध्या पर कम से कम 7 घंटे की गहरी नींद अनिवार्य है। रात भर जागने से हिप्पोकैम्पस में तथ्यों का पुनर्प्राप्ति-पथ (Retrieval Pathway) 30% तक मंद हो जाता है।
+  ]
+
+  v(6pt)
+  heading(level: 2)[6. दैनिक 45-मिनट विज्ञान अध्ययन समय-सारणी / Daily Science Memory Action Plan]
+  v(3pt)
+  text(size: 8.8pt)[
+    - *प्रथम 15 मिनट:* पिछले दिन पढ़े गए 25 प्रश्नों का "ढकना-स्मरण-सत्यापन" विधि से त्वरित दोहरान।
+    - *मध्य के 20 मिनट:* नए उप-विषय के 25 प्रश्नों का सक्रिय प्रत्यक्ष स्मरण एवं संशय वाले प्रश्नों पर मार्किंग।
+    - *अंतिम 10 मिनट:* सातों दिनों के अंतराल पर चिह्नित प्रश्नों और स्मृति सूत्रों (Mnemonics) का मानसिक पुनरावलोकन।
   ]
 
   pagebreak()
@@ -603,7 +631,7 @@
     )
   ]
 
-  v(6pt)
+  v(8pt)
   text(size: 9.5pt, weight: "bold", fill: rgb("#0e7490"))[तालिका 2: प्रमुख वैज्ञानिक उपकरण एवं उपयोग / Scientific Instruments & Uses]
   v(2pt)
   align(center)[
@@ -627,7 +655,8 @@
     )
   ]
 
-  v(6pt)
+  pagebreak()
+
   text(size: 9.5pt, weight: "bold", fill: rgb("#15803d"))[तालिका 3: प्रमुख विटामिन, रासायनिक नाम एवं हीनताजन्य रोग / Vitamins & Deficiencies]
   v(2pt)
   align(center)[
@@ -652,7 +681,7 @@
     )
   ]
 
-  v(6pt)
+  v(8pt)
   text(size: 9.5pt, weight: "bold", fill: rgb("#b45309"))[तालिका 4: बिहार विशेष वैज्ञानिक तथ्य सारणी / Bihar Special Science Fact Sheet]
   v(2pt)
   align(center)[
@@ -711,16 +740,16 @@
       #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))
       #v(6pt)
       
-      #text(size: 8.2pt)[
-        *सत्य प्रकाश (Satya Prakash)* एक जिज्ञासु अध्येता एवं छात्र-सहयोगी हैं, जो निरंतर प्रतियोगी परीक्षाओं की तैयारी कर रहे विद्यार्थियों की सहायता और व्यावहारिक मार्गदर्शन के प्रयास में संलग्न हैं।
+      #text(size: 8.4pt)[
+        *सत्य प्रकाश (Satya Prakash)* एक जिज्ञासु अध्येता एवं छात्र-सहयोगी हैं, जो निरंतर प्रतियोगी परीक्षाओं की तैयारी कर रहे विद्यार्थियों की सहायता के प्रयास में संलग्न हैं।
 
         *एक निष्कपट स्वीकारोक्ति (A Candid Note from the Compiler):* \
-        "मैं स्वयं किसी विषय का सर्वज्ञाता या व्यावसायिक कोचिंग विशेषज्ञ होने का कोई दावा नहीं करता। हर सामान्य अभ्यर्थी की भाँति मैं भी निरंतर अध्ययनरत हूँ और सीख रहा हूँ। सिविल सेवा परीक्षाओं, विशेषकर BPSC के विशाल पाठ्यक्रम और 68वीं–70वीं परीक्षा में लागू किए गए नकारात्मक अंकन (-0.33) के नए दौर में मैंने अनुभव किया कि पारंपरिक बहुविकल्पीय प्रश्नों में दिए जाने वाले भ्रामक विकल्प (Distractors) परीक्षार्थियों के मन में संशय और अनावश्यक नकारात्मक अंकन उत्पन्न करते हैं।
+        "मैं स्वयं किसी विषय का सर्वज्ञाता या कोई विशेषज्ञ होने का कोई दावा नहीं करता। हर सामान्य अभ्यर्थी की तरह मैं भी निरंतर सीख रहा हूँ और अध्ययनरत हूँ। परीक्षाओं की तैयारी के दौरान छात्रों के सामने आने वाली व्यावहारिक कठिनाइयों को देखते हुए—विशेषकर भ्रामक बहुविकल्पीय विकल्पों के कारण होने वाले संशय और नकारात्मक अंकन (-0.33) के नुकसान से बचने के लिए—मैंने यह प्रामाणिक प्रत्यक्ष प्रश्नोत्तर (Direct Q&A) बैंक संकलित किया है।
 
-        इसी आवश्यकता को समझते हुए मैंने पूरी निष्ठा और वैज्ञानिक प्रामाणिकता के साथ इस 812 उच्च-प्रासंगिक प्रत्यक्ष प्रश्नोत्तर (Direct Q&A) बैंक को संकलित किया है—ताकि मेरे साथी अभ्यर्थियों को प्रामाणिक, सटीक और सीधी अध्ययन सामग्री एक स्थान पर सुलभ हो सके। यह प्रयास पूर्णतः छात्रों के हित में और पारस्परिक सहयोग की भावना से किया गया है।"
+        यह संपूर्ण प्रयास केवल और केवल अपने साथी अभ्यर्थियों के सहयोग और लाभ के उद्देश्य से किया गया है, ताकि सभी को एक स्थान पर ठोस, सटीक और स्पष्ट अध्ययन सामग्री सुलभ हो सके।"
 
         *About the Compiler:* \
-        Satya Prakash is a dedicated learner and peer mentor committed to helping fellow students navigate competitive examinations with clarity and confidence. He makes no claims of being an omniscient master or commercial coaching guru—frankly acknowledging that learning is a continuous journey. Seeing how tricky distractor options in standard MCQs create confusion and trigger negative marking penalties under the modernized BPSC pattern, he undertook the rigorous compilation of this 812-question bilingual volume genuinely for the benefit of fellow aspirants, fostering open education and academic solidarity.
+        Satya Prakash is a dedicated learner and peer mentor focused simply on helping fellow students and aspirants in their exam preparation. He makes no claims of being a master of everything or an exam expert, acknowledging openly that learning is a continuous personal journey. Realizing how confusing distractor options in traditional MCQs induce hesitation and trigger heavy negative marking penalties, he undertook the compilation of this 812-question bilingual question bank genuinely for the sake and benefit of aspirants.
       ]
     ]
   )
@@ -734,26 +763,27 @@
   edition: "2026 Comprehensive Edition",
   author: "Satya Prakash",
 ) = {
-  align(center + horizon)[
+  page(margin: 0pt, header: none, footer: none)[
     #block(
       width: 100%,
-      fill: rgb("#0f172a"),
-      inset: (x: 14pt, y: 16pt),
-      radius: 6pt,
-      stroke: 1pt + rgb("#1e293b"),
+      height: 100%,
+      fill: rgb("#0b132b"),
+      inset: (x: 20pt, top: 26pt, bottom: 22pt),
       [
-        #text(size: 15pt, weight: "bold", fill: rgb("#38bdf8"))[BPSC General Science Question Bank]
-        #v(3pt)
-        #text(size: 11pt, weight: "bold", fill: rgb("#f8fafc"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
-        
-        #v(6pt)
-        #line(length: 50%, stroke: 1.5pt + rgb("#38bdf8"))
-        #v(6pt)
+        #align(center)[
+          #text(size: 16pt, weight: "bold", fill: rgb("#38bdf8"))[BPSC General Science Question Bank]
+          #v(4pt)
+          #text(size: 12pt, weight: "bold", fill: rgb("#f8fafc"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
+          
+          #v(8pt)
+          #line(length: 55%, stroke: 1.5pt + rgb("#38bdf8"))
+          #v(10pt)
+        ]
         
         #align(left)[
-          #text(size: 8.5pt, weight: "bold", fill: rgb("#67e8f9"))[पुस्तक की प्रमुख विशेषताएं / Salient Features of the Book:]
-          #v(3pt)
-          #text(size: 7.5pt, fill: rgb("#e2e8f0"))[
+          #text(size: 8.8pt, weight: "bold", fill: rgb("#67e8f9"))[पुस्तक की प्रमुख विशेषताएं / Salient Features of the Book:]
+          #v(4pt)
+          #text(size: 7.8pt, fill: rgb("#e2e8f0"))[
             • *100% प्रत्यक्ष प्रश्नोत्तर प्रारूप (Direct Q&A):* 4-विकल्पों वाले भ्रामक प्रश्नों के स्थान पर सीधे प्रश्न और अचूक उत्तर।\
             • *प्रामाणिक BPSC विगत वर्ष प्रश्न (56वीं से 70वीं CCE):* सभी वास्तविक विज्ञान प्रश्नों का पूर्ण समावेश।\
             • *उच्च-प्रासंगिक विस्तार (Syllabus-Adjacent):* परीक्षा के बदलते पैटर्न के अनुरूप गहन NCERT-आधारित प्रश्न।\
@@ -763,27 +793,27 @@
             • *परिशिष्ट में त्वरित पुनरावलोकन तालिकाएं:* भौतिक नियतांक, उपकरण, विटामिन और बिहार वैज्ञानिक तथ्य पत्रक।
           ]
           
-          #v(8pt)
-          #text(size: 8.5pt, weight: "bold", fill: rgb("#86efac"))[उपयोगिता / Recommended For:]
-          #v(2pt)
-          #text(size: 7.2pt, fill: rgb("#cbd5e1"))[
+          #v(14pt)
+          #text(size: 8.8pt, weight: "bold", fill: rgb("#86efac"))[उपयोगिता / Recommended For:]
+          #v(3pt)
+          #text(size: 7.5pt, fill: rgb("#cbd5e1"))[
             BPSC संयुक्त प्रतियोगिता परीक्षा (CCE Prelims), CDPO, सहायक (Assistant), सांख्यिकी अधिकारी (ASO), बिहार दरोगा (SI), तथा अन्य राज्य लोक सेवा आयोग परीक्षाओं के सामान्य विज्ञान प्रश्न-पत्र हेतु अनिवार्य संदर्भ पुस्तक।
           ]
         ]
         
-        #v(12pt)
+        #v(1fr)
         #line(length: 100%, stroke: 0.5pt + rgb("#334155"))
-        #v(6pt)
+        #v(8pt)
         
         #grid(
           columns: (1fr, 1fr),
           align(left)[
-            #text(size: 8pt, weight: "bold", fill: rgb("#ffffff"))[Compiled by #author]\
-            #text(size: 6.8pt, fill: rgb("#94a3b8"))[Dedicated to Civil Services Aspirants]
+            #text(size: 8.5pt, weight: "bold", fill: rgb("#ffffff"))[Compiled by #author]\
+            #text(size: 7.2pt, fill: rgb("#94a3b8"))[Dedicated to Civil Services Aspirants]
           ],
           align(right)[
-            #box(fill: rgb("#1e293b"), inset: (x: 8pt, y: 3pt), radius: 3pt)[
-              #text(size: 7.2pt, weight: "bold", fill: rgb("#38bdf8"))[#edition • 6"×9" Trade]
+            #box(fill: rgb("#1c2541"), inset: (x: 8pt, y: 4pt), radius: 3pt, stroke: 0.5pt + rgb("#38bdf8"))[
+              #text(size: 7.5pt, weight: "bold", fill: rgb("#38bdf8"))[#edition • 6"×9" Trade]
             ]
           ]
         )
