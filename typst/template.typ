@@ -1,6 +1,6 @@
 // BPSC General Science Question Bank & Study Book
-// Publication-grade Typst Template & Components
-// Author: Compiled and Authored by Satya Prakash
+// Publication-grade Typst Template & Components (6" × 9" US Trade Paperback)
+// Compiled by Satya Prakash for Civil Services Aspirants
 // Fonts: Liberation Sans (Latin) + Noto Sans Devanagari (Hindi)
 
 #let setup-document(
@@ -15,8 +15,8 @@
   )
 
   set page(
-    paper: "a4",
-    margin: (x: 1.8cm, top: 2.2cm, bottom: 2.2cm),
+    paper: "us-trade", // Standard 6" × 9" (152.4mm × 228.6mm / 432pt × 648pt)
+    margin: (x: 1.3cm, top: 1.8cm, bottom: 1.8cm),
     header: context {
       let page-num = counter(page).get().first()
       let last-page = counter(page).final().first()
@@ -24,11 +24,11 @@
       if page-num > 4 and page-num < last-page [
         #grid(
           columns: (1fr, 1fr),
-          align(left)[#text(size: 8pt, fill: rgb("#475569"), weight: "medium")[BPSC General Science Question Bank • सामान्य विज्ञान]],
-          align(right)[#text(size: 8pt, fill: rgb("#475569"), weight: "medium")[Compiled and Authored by Satya Prakash]]
+          align(left)[#text(size: 7.2pt, fill: rgb("#475569"), weight: "medium")[BPSC General Science Question Bank • सामान्य विज्ञान]],
+          align(right)[#text(size: 7.2pt, fill: rgb("#475569"), weight: "medium")[Compiled by Satya Prakash]]
         )
         #v(-4pt)
-        #line(length: 100%, stroke: 0.5pt + rgb("#cbd5e1"))
+        #line(length: 100%, stroke: 0.4pt + rgb("#cbd5e1"))
       ]
     },
     footer: context {
@@ -38,9 +38,9 @@
       if page-num > 1 and page-num < last-page [
         #grid(
           columns: (1fr, auto, 1fr),
-          align(left)[#text(size: 7.5pt, fill: rgb("#94a3b8"))[BPSC CCE Prelims High-Yield Series]],
-          align(center)[#text(size: 8.5pt, fill: rgb("#475569"), weight: "bold")[— #page-num —]],
-          align(right)[#text(size: 7.5pt, fill: rgb("#94a3b8"))[द्विभाषी संस्करण]]
+          align(left)[#text(size: 7pt, fill: rgb("#94a3b8"))[BPSC CCE Prelims Series]],
+          align(center)[#text(size: 7.8pt, fill: rgb("#475569"), weight: "bold")[— #page-num —]],
+          align(right)[#text(size: 7pt, fill: rgb("#94a3b8"))[द्विभाषी संस्करण]]
         )
       ]
     }
@@ -49,16 +49,16 @@
   set text(
     font: ("Liberation Sans", "Noto Sans Devanagari"),
     lang: "hi",
-    size: 10pt,
+    size: 9.2pt,
   )
 
-  set par(justify: true, leading: 0.65em)
+  set par(justify: true, leading: 0.58em)
 
   body
 }
 
 // ---------------------------------------------------------------------------
-// 1. Eye-Catching Book Front Cover
+// 1. Eye-Catching Book Front Cover (Optimized for 6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let book-cover(
   edition: "2026 Comprehensive Edition",
@@ -69,77 +69,77 @@
     #block(
       width: 100%,
       fill: rgb("#0f172a"),
-      inset: (x: 22pt, y: 32pt),
-      radius: 8pt,
+      inset: (x: 14pt, y: 16pt),
+      radius: 6pt,
       stroke: 1pt + rgb("#1e293b"),
       [
-        #box(fill: rgb("#1e293b"), inset: (x: 14pt, y: 6pt), radius: 4pt)[
-          #text(size: 9.5pt, weight: "bold", fill: rgb("#38bdf8"))[BPSC CCE PRELIMS SPECIAL EDITION • #exam-coverage]
+        #box(fill: rgb("#1e293b"), inset: (x: 10pt, y: 4pt), radius: 3pt)[
+          #text(size: 7.8pt, weight: "bold", fill: rgb("#38bdf8"))[BPSC CCE PRELIMS SPECIAL EDITION • #exam-coverage]
         ]
         
-        #v(16pt)
-        #text(size: 24pt, weight: "bold", fill: rgb("#ffffff"))[BPSC General Science \ Question Bank & Study Book]
+        #v(10pt)
+        #text(size: 17pt, weight: "bold", fill: rgb("#ffffff"))[BPSC General Science \ Question Bank & Study Book]
+        
+        #v(5pt)
+        #text(size: 12.5pt, weight: "bold", fill: rgb("#f1f5f9"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
         
         #v(8pt)
-        #text(size: 17pt, weight: "bold", fill: rgb("#f1f5f9"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
+        #line(length: 50%, stroke: 1.5pt + rgb("#38bdf8"))
+        #v(8pt)
         
-        #v(14pt)
-        #line(length: 55%, stroke: 2pt + rgb("#38bdf8"))
-        #v(14pt)
-        
-        #text(size: 10.5pt, fill: rgb("#cbd5e1"), style: "italic")[
+        #text(size: 8pt, fill: rgb("#cbd5e1"), style: "italic")[
           Authentic Previous Year Questions & Syllabus-Adjacent High-Yield Q&A Bank \
           विगत वर्षों के प्रामाणिक प्रश्नोत्तर एवं उच्च प्रासंगिक प्रत्यक्ष प्रश्न बैंक
         ]
         
-        #v(18pt)
-        #box(fill: rgb("#1e3a8a"), inset: (x: 14pt, y: 7pt), radius: 4pt, stroke: 1pt + rgb("#38bdf8"))[
-          #text(size: 11pt, weight: "bold", fill: rgb("#ffffff"))[Compiled and Authored by #author]
+        #v(10pt)
+        #box(fill: rgb("#1e3a8a"), inset: (x: 12pt, y: 5pt), radius: 3pt, stroke: 1pt + rgb("#38bdf8"))[
+          #text(size: 9pt, weight: "bold", fill: rgb("#ffffff"))[Compiled by #author for BPSC Aspirants]
         ]
         
-        #v(18pt)
+        #v(10pt)
         #grid(
           columns: (1fr, 1fr),
-          gutter: 10pt,
-          box(fill: rgb("#1e293b"), inset: 9pt, radius: 4pt, width: 100%)[
+          gutter: 6pt,
+          box(fill: rgb("#1e293b"), inset: 6pt, radius: 3pt, width: 100%)[
             #align(center)[
-              #text(weight: "bold", fill: rgb("#67e8f9"), size: 9.5pt)[Physics / भौतिक विज्ञान]\
-              #v(2pt)
-              #text(size: 8pt, fill: rgb("#94a3b8"))[Optics, Mechanics, Units, Heat & Electricity]
+              #text(weight: "bold", fill: rgb("#67e8f9"), size: 8.2pt)[Physics / भौतिक विज्ञान]\
+              #v(1pt)
+              #text(size: 7pt, fill: rgb("#94a3b8"))[Optics, Mechanics, Units & Heat]
             ]
           ],
-          box(fill: rgb("#1e293b"), inset: 9pt, radius: 4pt, width: 100%)[
+          box(fill: rgb("#1e293b"), inset: 6pt, radius: 3pt, width: 100%)[
             #align(center)[
-              #text(weight: "bold", fill: rgb("#67e8f9"), size: 9.5pt)[Chemistry / रसायन विज्ञान]\
-              #v(2pt)
-              #text(size: 8pt, fill: rgb("#94a3b8"))[Acids, Bases, Metals, Carbon & Everyday Chemistry]
+              #text(weight: "bold", fill: rgb("#67e8f9"), size: 8.2pt)[Chemistry / रसायन विज्ञान]\
+              #v(1pt)
+              #text(size: 7pt, fill: rgb("#94a3b8"))[Acids, Bases, Metals & Polymers]
             ]
           ],
-          box(fill: rgb("#1e293b"), inset: 9pt, radius: 4pt, width: 100%)[
+          box(fill: rgb("#1e293b"), inset: 6pt, radius: 3pt, width: 100%)[
             #align(center)[
-              #text(weight: "bold", fill: rgb("#86efac"), size: 9.5pt)[Biology / जीव विज्ञान]\
-              #v(2pt)
-              #text(size: 8pt, fill: rgb("#94a3b8"))[Human Physiology, Vitamins, Diseases & Cytology]
+              #text(weight: "bold", fill: rgb("#86efac"), size: 8.2pt)[Biology / जीव विज्ञान]\
+              #v(1pt)
+              #text(size: 7pt, fill: rgb("#94a3b8"))[Physiology, Vitamins & Cytology]
             ]
           ],
-          box(fill: rgb("#1e293b"), inset: 9pt, radius: 4pt, width: 100%)[
+          box(fill: rgb("#1e293b"), inset: 6pt, radius: 3pt, width: 100%)[
             #align(center)[
-              #text(weight: "bold", fill: rgb("#fde047"), size: 9.5pt)[Bihar Science / बिहार विज्ञान]\
-              #v(2pt)
-              #text(size: 8pt, fill: rgb("#94a3b8"))[Kala-azar, AES, Groundwater & Agro Ecology]
+              #text(weight: "bold", fill: rgb("#fde047"), size: 8.2pt)[Bihar Science / बिहार विज्ञान]\
+              #v(1pt)
+              #text(size: 7pt, fill: rgb("#94a3b8"))[Kala-azar, AES, Arsenic & Wetlands]
             ]
           ]
         )
         
-        #v(20pt)
-        #box(fill: rgb("#1e293b"), inset: (x: 12pt, y: 5pt), radius: 3pt)[
-          #text(size: 8.5pt, weight: "medium", fill: rgb("#f8fafc"))[
-            *Direct Q&A Format* • Zero Distractor MCQs • 100% Devanagari Script Support
+        #v(10pt)
+        #box(fill: rgb("#1e293b"), inset: (x: 10pt, y: 4pt), radius: 3pt)[
+          #text(size: 7.5pt, weight: "medium", fill: rgb("#f8fafc"))[
+            *Direct Q&A Format* • Zero Distractor MCQs • 100% Devanagari Hindi
           ]
         ]
         
-        #v(12pt)
-        #text(size: 8.5pt, fill: rgb("#94a3b8"))[
+        #v(8pt)
+        #text(size: 7.5pt, fill: rgb("#94a3b8"))[
           BPSC Civil Services Examination Series • #edition
         ]
       ]
@@ -149,19 +149,18 @@
 }
 
 // ---------------------------------------------------------------------------
-// 2. Half Title Page
+// 2. Half Title Page (6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let half-title-page(author: "Satya Prakash") = {
   align(center + horizon)[
-    #v(-60pt)
-    #text(size: 22pt, weight: "bold", fill: rgb("#0f172a"))[BPSC General Science Question Bank]
-    #v(8pt)
-    #text(size: 16pt, weight: "bold", fill: rgb("#475569"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक]
-    #v(16pt)
+    #text(size: 17pt, weight: "bold", fill: rgb("#0f172a"))[BPSC General Science Question Bank]
+    #v(6pt)
+    #text(size: 13pt, weight: "bold", fill: rgb("#475569"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक]
+    #v(12pt)
     #line(length: 35%, stroke: 1.5pt + rgb("#1e3a8a"))
-    #v(16pt)
-    #text(size: 11pt, weight: "medium", fill: rgb("#64748b"))[
-      Compiled and Authored by\
+    #v(12pt)
+    #text(size: 9.5pt, weight: "medium", fill: rgb("#64748b"))[
+      Compiled for Civil Services Aspirants by\
       #text(weight: "bold", fill: rgb("#0f172a"))[#author]
     ]
   ]
@@ -169,61 +168,63 @@
 }
 
 // ---------------------------------------------------------------------------
-// 3. Full Title Page
+// 3. Full Title Page (6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let full-title-page(
   author: "Satya Prakash",
   edition: "2026 Comprehensive Edition",
 ) = {
   align(center + horizon)[
-    #text(size: 10pt, weight: "bold", fill: rgb("#1e3a8a"))[CIVIL SERVICES EXAMINATION PRELIMINARY SERIES]
-    #v(14pt)
-    #text(size: 24pt, weight: "bold", fill: rgb("#0f172a"))[BPSC General Science \ Question Bank & Study Book]
-    #v(8pt)
-    #text(size: 17pt, weight: "bold", fill: rgb("#1e293b"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
-    #v(12pt)
-    #line(length: 50%, stroke: 1.5pt + rgb("#1e3a8a"))
-    #v(12pt)
-    #text(size: 10.5pt, fill: rgb("#475569"), style: "italic")[
+    #text(size: 8.5pt, weight: "bold", fill: rgb("#1e3a8a"))[CIVIL SERVICES EXAMINATION PRELIMINARY SERIES]
+    #v(10pt)
+    #text(size: 18pt, weight: "bold", fill: rgb("#0f172a"))[BPSC General Science \ Question Bank & Study Book]
+    #v(6pt)
+    #text(size: 13pt, weight: "bold", fill: rgb("#1e293b"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
+    #v(10pt)
+    #line(length: 45%, stroke: 1.5pt + rgb("#1e3a8a"))
+    #v(10pt)
+    #text(size: 8.5pt, fill: rgb("#475569"), style: "italic")[
       Comprehensive Bilingual Question Bank Covering 56th–59th through 70th BPSC CCE Prelims \
       with High-Yield Syllabus-Adjacent Question Expansion & Complete Direct Q&A Solutions
     ]
     
-    #v(35pt)
-    #box(fill: rgb("#f1f5f9"), inset: (x: 18pt, y: 10pt), radius: 4pt, stroke: 1pt + rgb("#cbd5e1"))[
-      #text(size: 9.5pt, fill: rgb("#475569"))[Compiled and Authored by]\
+    #v(20pt)
+    #box(fill: rgb("#f1f5f9"), inset: (x: 14pt, y: 8pt), radius: 4pt, stroke: 1pt + rgb("#cbd5e1"))[
+      #text(size: 8.5pt, fill: rgb("#475569"))[Compiled by]\
       #v(2pt)
-      #text(size: 13pt, weight: "bold", fill: rgb("#0f172a"))[#author]
+      #text(size: 12pt, weight: "bold", fill: rgb("#0f172a"))[#author]\
+      #v(1pt)
+      #text(size: 7.5pt, fill: rgb("#64748b"))[Dedicated to Civil Services Aspirants]
     ]
     
-    #v(50pt)
-    #line(length: 30%, stroke: 0.5pt + rgb("#cbd5e1"))
-    #v(8pt)
-    #text(size: 9pt, fill: rgb("#64748b"))[
+    #v(25pt)
+    #line(length: 25%, stroke: 0.5pt + rgb("#cbd5e1"))
+    #v(6pt)
+    #text(size: 8pt, fill: rgb("#64748b"))[
       Patna • New Delhi \
-      #edition
+      #edition • 6" × 9" Trade Edition
     ]
   ]
   pagebreak()
 }
 
 // ---------------------------------------------------------------------------
-// 4. Copyright & Publication Metadata Page
+// 4. Copyright & Publication Metadata Page (6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let copyright-page(author: "Satya Prakash") = {
   align(bottom + left)[
-    #text(size: 9pt)[
+    #text(size: 7.8pt)[
       *BPSC General Science Question Bank & Study Book* \
       *बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक* \
-      Bilingual Direct Q&A Comprehensive Edition (English & Hindi) \
+      Bilingual Direct Q&A Comprehensive Monograph (English & Hindi) \
       \
-      *Compiled and Authored by:* #author \
-      *First Edition:* 2026 \
+      *Compiled by:* #author \
+      *First Edition:* 2026 (6" × 9" US Trade Paperback Format) \
       *Series:* BPSC CCE General Studies Reference Series \
       \
-      *© 2026 #author. All rights reserved.* \
+      *© 2026 #author. Open Educational Monograph.* \
       \
-      No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the author, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law. \
+      Compiled and prepared for the educational benefit of students and civil services aspirants. Distributed under academic fair use and open study license. \
       \
       *Cataloging & Subject Classification:* \
       1. Civil Services Examination — India — Bihar. \
@@ -231,10 +232,10 @@
       3. Previous Year Solved Questions — Direct Q&A Format. \
       \
       *Disclaimer:* \
-      Every effort has been made to ensure the highest degree of scientific accuracy in the questions, answers, and scientific explanations. Official BPSC answer keys have been harmonized and reconciled with authoritative NCERT benchmarks and standard scientific references. Neither the author nor the publishers shall be liable for any accidental omissions or printing discrepancies. \
+      Every effort has been made to ensure scientific accuracy in questions, answers, and explanations. Official BPSC answer keys have been reconciled with authoritative NCERT benchmarks. Neither the compiler nor contributors assume liability for incidental typographical errors. \
       \
-      *Typesetting & Font Notice:* \
-      Typeset in *Liberation Sans* (Latin) and *Google Noto Sans Devanagari* (Hindi) using the *Typst* modern typesetting system.
+      *Typesetting & Format Notice:* \
+      Typeset in standard *6" × 9" Trade Paperback format* using *Liberation Sans* (Latin) and *Noto Sans Devanagari* (Hindi) via *Typst 0.15.1*.
     ]
   ]
   pagebreak()
@@ -300,39 +301,39 @@
     *प्रत्यक्ष प्रश्न बैंक की संरचना एवं विषयवार वितरण:*
   ]
 
-  v(6pt)
+  v(4pt)
   align(center)[
     #table(
-      columns: (1.4fr, 0.9fr, 1.1fr, 2.3fr, 0.9fr),
+      columns: (1.3fr, 0.8fr, 0.9fr, 2.2fr, 0.8fr),
       fill: (x, y) => if y == 0 { rgb("#1e293b") } else if y == 5 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { rgb("#ffffff") },
       stroke: 0.5pt + rgb("#cbd5e1"),
-      inset: 6pt,
+      inset: 3.5pt,
       align: (col, row) => if row == 0 { center + horizon } else if col == 0 { left + horizon } else if col == 3 { left + horizon } else { center + horizon },
       
       // Header
-      text(weight: "bold", fill: white, size: 8.5pt)[विषय / Discipline],
-      text(weight: "bold", fill: white, size: 8.5pt)[भारांक %],
-      text(weight: "bold", fill: white, size: 8.5pt)[वार्षिक प्रश्न],
-      text(weight: "bold", fill: white, size: 8.5pt)[प्रमुख उच्च-प्रासंगिक विषय / Core Topics],
-      text(weight: "bold", fill: white, size: 8.5pt)[प्रश्न संख्या],
+      text(weight: "bold", fill: white, size: 7.2pt)[विषय / Discipline],
+      text(weight: "bold", fill: white, size: 7.2pt)[भारांक %],
+      text(weight: "bold", fill: white, size: 7.2pt)[वार्षिक प्रश्न],
+      text(weight: "bold", fill: white, size: 7.2pt)[प्रमुख विषय / Core Topics],
+      text(weight: "bold", fill: white, size: 7.2pt)[प्रश्न संख्या],
       
       // Rows
-      [जीव विज्ञान (Biology)], [36% – 40%], [10 – 12 प्रश्न], [मानव शरीर क्रिया, पोषण/विटामिन, संक्रामक रोग, कोशिका विज्ञान], str(biology-count),
-      [भौतिक विज्ञान (Physics)], [30% – 34%], [8 – 10 प्रश्न], [प्रकाशिकी, यांत्रिकी/गुरुत्वाकर्षण, मात्रक/उपकरण, ऊष्मागतिकी], str(physics-count),
-      [रसायन विज्ञान (Chemistry)], [24% – 28%], [7 – 9 प्रश्न], [अम्ल-क्षार-लवण, धातु/मिश्रधातु, कार्बनिक बहुलक, दैनिक रसायन], str(chemistry-count),
-      [बिहार पर्यावरण एवं कृषि], [8% – 10%], [2 – 4 प्रश्न], [कालाजार, एईएस (AES), भूजल आर्सेनिक/फ्लोराइड, कृषि-जलवायु], str(bihar-count),
+      text(size: 7pt)[जीव विज्ञान (Biology)], text(size: 7pt)[36% – 40%], text(size: 7pt)[10 – 12 प्रश्न], text(size: 7pt)[मानव शरीर क्रिया, पोषण/विटामिन, संक्रामक रोग, कोशिका विज्ञान], text(size: 7pt)[#str(biology-count)],
+      text(size: 7pt)[भौतिक विज्ञान (Physics)], text(size: 7pt)[30% – 34%], text(size: 7pt)[8 – 10 प्रश्न], text(size: 7pt)[प्रकाशिकी, यांत्रिकी/गुरुत्वाकर्षण, मात्रक/उपकरण, ऊष्मागतिकी], text(size: 7pt)[#str(physics-count)],
+      text(size: 7pt)[रसायन विज्ञान (Chemistry)], text(size: 7pt)[24% – 28%], text(size: 7pt)[7 – 9 प्रश्न], text(size: 7pt)[अम्ल-क्षार-लवण, धातु/मिश्रधातु, कार्बनिक बहुलक, दैनिक रसायन], text(size: 7pt)[#str(chemistry-count)],
+      text(size: 7pt)[बिहार पर्यावरण एवं कृषि], text(size: 7pt)[8% – 10%], text(size: 7pt)[2 – 4 प्रश्न], text(size: 7pt)[कालाजार, एईएस (AES), भूजल आर्सेनिक/फ्लोराइड, कृषि-जलवायु], text(size: 7pt)[#str(bihar-count)],
       
       // Total Row
-      text(weight: "bold")[कुल योग (Total Bank)],
-      text(weight: "bold")[100%],
-      text(weight: "bold")[25 – 30 प्रश्न],
-      text(weight: "bold")[संपूर्ण सामान्य विज्ञान पाठ्यक्रम कवरेज],
-      text(weight: "bold")[#str(total-count)]
+      text(weight: "bold", size: 7.2pt)[कुल योग (Total Bank)],
+      text(weight: "bold", size: 7.2pt)[100%],
+      text(weight: "bold", size: 7.2pt)[25 – 30 प्रश्न],
+      text(weight: "bold", size: 7.2pt)[संपूर्ण सामान्य विज्ञान पाठ्यक्रम कवरेज],
+      text(weight: "bold", size: 7.2pt)[#str(total-count)]
     )
   ]
 
-  v(6pt)
-  text(size: 9.5pt)[
+  v(4pt)
+  text(size: 8.8pt)[
     *अभ्यर्थियों के लिए त्रि-चरणीय अध्ययन रणनीति (Three-Phase Preparation Strategy):*
     - *चरण 1 (अवधारणात्मक स्पष्टता):* NCERT कक्षा 9 व 10 के मूलभूत सिद्धांतों तथा CSTT के हिंदी वैज्ञानिक पारिभाषिक शब्दों पर अधिकार प्राप्त करें।
     - *चरण 2 (प्रत्यक्ष प्रश्नोत्तर अभ्यास):* इस पुस्तक के सभी अध्यायों के प्रश्नों का गहन अध्ययन करें। उत्तर को हाथ से ढककर स्वयं उत्तर स्मरण करने का अभ्यास करें।
@@ -473,7 +474,7 @@
 }
 
 // ---------------------------------------------------------------------------
-// 8. Chapter Header Component
+// 8. Chapter Header Component (6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let chapter-header(
   title,
@@ -482,44 +483,44 @@
   accent-color: rgb("#1e40af"),
 ) = {
   pagebreak()
-  v(6pt)
+  v(4pt)
   block(
     width: 100%,
     fill: accent-color.lighten(94%),
-    stroke: (left: 5pt + accent-color, rest: 0.5pt + accent-color.lighten(70%)),
-    inset: (x: 14pt, top: 12pt, bottom: 12pt),
-    radius: (right: 5pt),
+    stroke: (left: 4.5pt + accent-color, rest: 0.5pt + accent-color.lighten(70%)),
+    inset: (x: 12pt, top: 10pt, bottom: 10pt),
+    radius: (right: 4pt),
     [
-      #box(fill: accent-color.lighten(80%), inset: (x: 6pt, y: 3pt), radius: 3pt)[
-        #text(size: 8.5pt, weight: "bold", fill: accent-color)[#badge]
+      #box(fill: accent-color.lighten(80%), inset: (x: 5pt, y: 2.5pt), radius: 3pt)[
+        #text(size: 7.8pt, weight: "bold", fill: accent-color)[#badge]
       ]
       #v(2pt)
-      #text(size: 18pt, weight: "bold", fill: rgb("#0f172a"))[#heading(level: 1)[#title]]
+      #text(size: 15pt, weight: "bold", fill: rgb("#0f172a"))[#heading(level: 1)[#title]]
       #if subtitle != "" [
-        #v(4pt)
-        #text(size: 9.5pt, fill: rgb("#475569"))[#subtitle]
+        #v(3pt)
+        #text(size: 8.5pt, fill: rgb("#475569"))[#subtitle]
       ]
     ]
   )
-  v(12pt)
+  v(8pt)
 }
 
 // ---------------------------------------------------------------------------
-// 8. Topic Subheading Component
+// 9. Topic Subheading Component (6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let topic-header(
   title,
   accent-color: rgb("#1e40af"),
 ) = {
-  v(12pt)
+  v(10pt)
   heading(level: 2)[#title]
-  v(-4pt)
-  line(length: 100%, stroke: 0.75pt + accent-color.lighten(50%))
-  v(6pt)
+  v(-3pt)
+  line(length: 100%, stroke: 0.6pt + accent-color.lighten(50%))
+  v(5pt)
 }
 
 // ---------------------------------------------------------------------------
-// 9. Question Card Component (Stacked Bilingual Callout Block)
+// 10. Question Card Component (Stacked Bilingual Callout Block - 6" × 9" Trade)
 // ---------------------------------------------------------------------------
 #let question-card(
   id: "",
@@ -531,146 +532,146 @@
   accent-color: rgb("#1e40af"),
 ) = block(
   width: 100%,
-  stroke: (left: 3.5pt + accent-color),
+  stroke: (left: 3pt + accent-color),
   fill: rgb("#f8fafc"),
-  inset: (x: 12pt, top: 9pt, bottom: 9pt),
+  inset: (x: 9pt, top: 7pt, bottom: 7pt),
   radius: (right: 4pt),
   breakable: false,
-  spacing: 10pt,
+  spacing: 8pt,
   [
     #grid(
       columns: (auto, 1fr),
-      gutter: 8pt,
-      [#box(fill: rgb("#e2e8f0"), inset: (x: 6pt, y: 2.5pt), radius: 3pt)[
-        #text(size: 8.5pt, weight: "bold", fill: accent-color)[#id]
+      gutter: 6pt,
+      [#box(fill: rgb("#e2e8f0"), inset: (x: 5pt, y: 2pt), radius: 3pt)[
+        #text(size: 7.5pt, weight: "bold", fill: accent-color)[#id]
       ]],
-      align(right)[#box(fill: rgb("#ede9fe"), inset: (x: 6pt, y: 2.5pt), radius: 3pt)[
-        #text(size: 7.8pt, weight: "medium", fill: rgb("#5b21b6"))[#exam]
+      align(right)[#box(fill: rgb("#ede9fe"), inset: (x: 5pt, y: 2pt), radius: 3pt)[
+        #text(size: 7pt, weight: "medium", fill: rgb("#5b21b6"))[#exam]
       ]]
     )
-    #v(3pt)
-    #text(weight: "bold", fill: rgb("#0f172a"))[Q: ]
-    #text(weight: "medium", fill: rgb("#0f172a"))[#en-q]
+    #v(2pt)
+    #text(weight: "bold", fill: rgb("#0f172a"), size: 8.8pt)[Q: ]
+    #text(weight: "medium", fill: rgb("#0f172a"), size: 8.8pt)[#en-q]
     
-    #v(2.5pt)
-    #text(weight: "bold", fill: rgb("#15803d"))[Ans: ]
-    #text(weight: "regular", fill: rgb("#1e293b"))[#en-a]
+    #v(2pt)
+    #text(weight: "bold", fill: rgb("#15803d"), size: 8.8pt)[Ans: ]
+    #text(weight: "regular", fill: rgb("#1e293b"), size: 8.8pt)[#en-a]
 
-    #v(5pt)
-    #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))
-    #v(3pt)
+    #v(4pt)
+    #line(length: 100%, stroke: 0.4pt + rgb("#e2e8f0"))
+    #v(2pt)
 
-    #text(weight: "bold", fill: rgb("#0f172a"))[प्र: ]
-    #text(weight: "medium", fill: rgb("#0f172a"))[#hi-q]
+    #text(weight: "bold", fill: rgb("#0f172a"), size: 8.8pt)[प्र: ]
+    #text(weight: "medium", fill: rgb("#0f172a"), size: 8.8pt)[#hi-q]
     
-    #v(2.5pt)
-    #text(weight: "bold", fill: rgb("#15803d"))[उ: ]
-    #text(weight: "regular", fill: rgb("#1e293b"))[#hi-a]
+    #v(2pt)
+    #text(weight: "bold", fill: rgb("#15803d"), size: 8.8pt)[उ: ]
+    #text(weight: "regular", fill: rgb("#1e293b"), size: 8.8pt)[#hi-a]
   ]
 )
 
 // ---------------------------------------------------------------------------
-// 10. Appendix: Quick Revision Tables & Scientific Fact Sheets
+// 11. Appendix: Quick Revision Tables & Scientific Fact Sheets (6" × 9" Trade)
 // ---------------------------------------------------------------------------
 #let revision-appendix() = {
   pagebreak()
   heading(level: 1, numbering: none)[परिशिष्ट: त्वरित पुनरावलोकन तालिकाएं / Quick Revision Appendix]
 
-  v(6pt)
-  text(size: 11pt, weight: "bold", fill: rgb("#1e3a8a"))[तालिका 1: सार्वभौमिक भौतिक नियतांक एवं मात्रक / Universal Physical Constants]
-  v(3pt)
+  v(4pt)
+  text(size: 9.5pt, weight: "bold", fill: rgb("#1e3a8a"))[तालिका 1: सार्वभौमिक भौतिक नियतांक एवं मात्रक / Universal Physical Constants]
+  v(2pt)
   align(center)[
     #table(
-      columns: (1.5fr, 1.2fr, 1fr, 1.5fr),
+      columns: (1.5fr, 0.8fr, 1.1fr, 1.2fr),
       fill: (x, y) => if y == 0 { rgb("#1e293b") } else if calc.even(y) { rgb("#f8fafc") } else { rgb("#ffffff") },
       stroke: 0.5pt + rgb("#cbd5e1"),
-      inset: 5.5pt,
+      inset: 3.5pt,
       align: (col, row) => if row == 0 { center + horizon } else if col == 0 { left + horizon } else { center + horizon },
       
-      text(weight: "bold", fill: white, size: 8pt)[भौतिक राशि (Physical Quantity)],
-      text(weight: "bold", fill: white, size: 8pt)[प्रतीक (Symbol)],
-      text(weight: "bold", fill: white, size: 8pt)[SI मान (Value)],
-      text(weight: "bold", fill: white, size: 8pt)[SI मात्रक (SI Unit)],
+      text(weight: "bold", fill: white, size: 7.2pt)[भौतिक राशि (Quantity)],
+      text(weight: "bold", fill: white, size: 7.2pt)[प्रतीक (Symbol)],
+      text(weight: "bold", fill: white, size: 7.2pt)[SI मान (Value)],
+      text(weight: "bold", fill: white, size: 7.2pt)[SI मात्रक (Unit)],
       
-      [प्रकाश का वेग (Speed of Light in Vacuum)], [$c$], [$3.00 times 10^8$], [$text("m") / text("s")$],
-      [सार्वभौमिक गुरुत्वाकर्षण नियतांक (Gravitational Constant)], [$G$], [$6.674 times 10^(-11)$], [$text("N") dot text("m")^2 / text("kg")^2$],
-      [प्लांक नियतांक (Planck Constant)], [$h$], [$6.626 times 10^(-34)$], [$text("J") dot text("s")$],
-      [मूल आवेश (Elementary Charge)], [$e$], [$1.602 times 10^(-19)$], [कूलॉम ($text("C")$)],
-      [आवोगाद्रो संख्या (Avogadro Constant)], [$N_A$], [$6.022 times 10^23$], [$text("mol")^(-1)$],
-      [बोल्ट्जमान नियतांक (Boltzmann Constant)], [$k_B$], [$1.381 times 10^(-23)$], [$text("J") / text("K")$],
-      [मानक गुरुत्वीय त्वरण (Standard Gravity on Earth)], [$g$], [$9.807$], [$text("m") / text("s")^2$]
+      text(size: 7pt)[प्रकाश का वेग (Speed of Light)], [$c$], text(size: 7pt)[$3.00 times 10^8$], text(size: 7pt)[$text("m") / text("s")$],
+      text(size: 7pt)[गुरुत्वाकर्षण नियतांक (Gravitational Constant)], [$G$], text(size: 7pt)[$6.674 times 10^(-11)$], text(size: 7pt)[$text("N") dot text("m")^2 / text("kg")^2$],
+      text(size: 7pt)[प्लांक नियतांक (Planck Constant)], [$h$], text(size: 7pt)[$6.626 times 10^(-34)$], text(size: 7pt)[$text("J") dot text("s")$],
+      text(size: 7pt)[मूल आवेश (Elementary Charge)], [$e$], text(size: 7pt)[$1.602 times 10^(-19)$], text(size: 7pt)[कूलॉम ($text("C")$)],
+      text(size: 7pt)[आवोगाद्रो संख्या (Avogadro Constant)], [$N_A$], text(size: 7pt)[$6.022 times 10^23$], text(size: 7pt)[$text("mol")^(-1)$],
+      text(size: 7pt)[बोल्ट्जमान नियतांक (Boltzmann Constant)], [$k_B$], text(size: 7pt)[$1.381 times 10^(-23)$], text(size: 7pt)[$text("J") / text("K")$],
+      text(size: 7pt)[मानक गुरुत्वीय त्वरण (Standard Gravity)], [$g$], text(size: 7pt)[$9.807$], text(size: 7pt)[$text("m") / text("s")^2$]
     )
   ]
 
-  v(10pt)
-  text(size: 11pt, weight: "bold", fill: rgb("#0e7490"))[तालिका 2: प्रमुख वैज्ञानिक उपकरण एवं उपयोग / Scientific Instruments & Uses]
-  v(3pt)
+  v(6pt)
+  text(size: 9.5pt, weight: "bold", fill: rgb("#0e7490"))[तालिका 2: प्रमुख वैज्ञानिक उपकरण एवं उपयोग / Scientific Instruments & Uses]
+  v(2pt)
   align(center)[
     #table(
-      columns: (1.2fr, 2.8fr),
+      columns: (1.1fr, 2.5fr),
       fill: (x, y) => if y == 0 { rgb("#1e293b") } else if calc.even(y) { rgb("#f8fafc") } else { rgb("#ffffff") },
       stroke: 0.5pt + rgb("#cbd5e1"),
-      inset: 5.5pt,
+      inset: 4pt,
       align: (col, row) => if row == 0 { center + horizon } else if col == 0 { left + horizon } else { left + horizon },
       
-      text(weight: "bold", fill: white, size: 8pt)[उपकरण (Instrument)],
-      text(weight: "bold", fill: white, size: 8pt)[मापन / अनुप्रयोग (Application & Measurement)],
+      text(weight: "bold", fill: white, size: 7.2pt)[उपकरण (Instrument)],
+      text(weight: "bold", fill: white, size: 7.2pt)[मापन / अनुप्रयोग (Application & Measurement)],
       
-      [बैरोमीटर (Barometer)], [वायुमंडलीय दाब का मापन (पारे के स्तंभ की अचानक गिरावट तूफान का संकेत देती है)],
-      [लैक्टोमीटर (Lactometer)], [दूध की शुद्धता एवं आपेक्षिक घनत्व का मापन (आर्किमिडीज सिद्धांत पर आधारित)],
-      [हाइग्रोमीटर (Hygrometer)], [वायुमंडल की सापेक्ष आर्द्रता (Relative Humidity) का मापन],
-      [पाइरोमीटर (Pyrometer)], [अत्यधिक उच्च तापमान (जैसे सूर्य का पृष्ठ तापमान) का विकिरण द्वारा मापन],
-      [स्फिग्मोमैनोमीटर (Sphygmomanometer)], [मानव शरीर का रक्तचाप (सामान्य मान: 120/80 mmHg)],
-      [सोनार (SONAR)], [पराध्वनि (Ultrasound) द्वारा समुद्र की गहराई व जलमग्न वस्तुओं की दूरी का मापन],
-      [रडार (RADAR)], [रेडियो तरंगों द्वारा दूरगामी विमानों की स्थिति, दिशा एवं गति का संसूचन]
+      text(size: 7.2pt)[बैरोमीटर (Barometer)], text(size: 7.2pt)[वायुमंडलीय दाब का मापन (पारे के स्तंभ की अचानक गिरावट तूफान का संकेत देती है)],
+      text(size: 7.2pt)[लैक्टोमीटर (Lactometer)], text(size: 7.2pt)[दूध की शुद्धता एवं आपेक्षिक घनत्व का मापन (आर्किमिडीज सिद्धांत पर आधारित)],
+      text(size: 7.2pt)[हाइग्रोमीटर (Hygrometer)], text(size: 7.2pt)[वायुमंडल की सापेक्ष आर्द्रता (Relative Humidity) का मापन],
+      text(size: 7.2pt)[पाइरोमीटर (Pyrometer)], text(size: 7.2pt)[अत्यधिक उच्च तापमान (जैसे सूर्य का पृष्ठ तापमान) का विकिरण द्वारा मापन],
+      text(size: 7.2pt)[स्फिग्मोमैनोमीटर], text(size: 7.2pt)[मानव शरीर का रक्तचाप (सामान्य मान: 120/80 mmHg)],
+      text(size: 7.2pt)[सोनार (SONAR)], text(size: 7.2pt)[पराध्वनि (Ultrasound) द्वारा समुद्र की गहराई व जलमग्न वस्तुओं की दूरी का मापन],
+      text(size: 7.2pt)[रडार (RADAR)], text(size: 7.2pt)[रेडियो तरंगों द्वारा दूरगामी विमानों की स्थिति, दिशा एवं गति का संसूचन]
     )
   ]
 
-  v(10pt)
-  text(size: 11pt, weight: "bold", fill: rgb("#15803d"))[तालिका 3: प्रमुख विटामिन, रासायनिक नाम एवं हीनताजन्य रोग / Vitamins & Deficiencies]
-  v(3pt)
+  v(6pt)
+  text(size: 9.5pt, weight: "bold", fill: rgb("#15803d"))[तालिका 3: प्रमुख विटामिन, रासायनिक नाम एवं हीनताजन्य रोग / Vitamins & Deficiencies]
+  v(2pt)
   align(center)[
     #table(
-      columns: (0.9fr, 1.2fr, 1.9fr),
+      columns: (0.8fr, 1.1fr, 1.7fr),
       fill: (x, y) => if y == 0 { rgb("#1e293b") } else if calc.even(y) { rgb("#f8fafc") } else { rgb("#ffffff") },
       stroke: 0.5pt + rgb("#cbd5e1"),
-      inset: 5.5pt,
+      inset: 3.5pt,
       align: (col, row) => if row == 0 { center + horizon } else if col == 0 { left + horizon } else { left + horizon },
       
-      text(weight: "bold", fill: white, size: 8pt)[विटामिन (Vitamin)],
-      text(weight: "bold", fill: white, size: 8pt)[रासायनिक नाम (Chemical Name)],
-      text(weight: "bold", fill: white, size: 8pt)[हीनताजन्य रोग / लक्षण (Deficiency Disorder)],
+      text(weight: "bold", fill: white, size: 7.2pt)[विटामिन],
+      text(weight: "bold", fill: white, size: 7.2pt)[रासायनिक नाम],
+      text(weight: "bold", fill: white, size: 7.2pt)[हीनताजन्य रोग / लक्षण],
       
-      [विटामिन A], [रेटिनॉल (Retinol)], [रतौंधी (Nyctalopia), जीरोफ्थैल्मिया (नेत्र शुष्कता)],
-      [विटामिन B1], [थायमिन (Thiamine)], [बेरी-बेरी (तंत्रिका तंत्र एवं हृदय संबंधी विकार)],
-      [विटामिन B3], [नियासिन / निकोटिनिक अम्ल], [पेलाग्रा (4D सिंड्रोम: डर्मेटाइटिस, डायरिया, डिमेंशिया, डेथ)],
-      [विटामिन B12], [सायनोकोबालामिन (Cobalt युक्त)], [घातक रक्ताल्पता (Pernicious Anemia), तंत्रिका तंत्र क्षति],
-      [विटामिन C], [एस्कॉर्बिक अम्ल (Ascorbic Acid)], [स्कर्वी (मसूड़ों से रक्तस्राव, घाव भरने में विलंब)],
-      [विटामिन D], [कैल्सीफेरोल (Calciferol)], [रिकेट्स (बच्चों में अस्थि विकृति), ऑस्टियोमलेशिया (वयस्कों में)],
-      [विटामिन K], [फाइलोक्विनोन (Phylloquinone)], [रक्त का थक्का न जमना (विलंबित प्रोथ्रोम्बिन काल)]
+      text(size: 7pt)[विटामिन A], text(size: 7pt)[रेटिनॉल (Retinol)], text(size: 7pt)[रतौंधी (Nyctalopia), जीरोफ्थैल्मिया (नेत्र शुष्कता)],
+      text(size: 7pt)[विटामिन B1], text(size: 7pt)[थायमिन (Thiamine)], text(size: 7pt)[बेरी-बेरी (तंत्रिका तंत्र एवं हृदय संबंधी विकार)],
+      text(size: 7pt)[विटामिन B3], text(size: 7pt)[नियासिन / निकोटिनिक अम्ल], text(size: 7pt)[पेलाग्रा (4D सिंड्रोम: डर्मेटाइटिस, डायरिया, डिमेंशिया, डेथ)],
+      text(size: 7pt)[विटामिन B12], text(size: 7pt)[सायनोकोबालामिन (Cobalt)], text(size: 7pt)[घातक रक्ताल्पता (Pernicious Anemia), तंत्रिका तंत्र क्षति],
+      text(size: 7pt)[विटामिन C], text(size: 7pt)[एस्कॉर्बिक अम्ल], text(size: 7pt)[स्कर्वी (मसूड़ों से रक्तस्राव, घाव भरने में विलंब)],
+      text(size: 7pt)[विटामिन D], text(size: 7pt)[कैल्सीफेरोल], text(size: 7pt)[रिकेट्स (बच्चों में अस्थि विकृति), ऑस्टियोमलेशिया (वयस्कों में)],
+      text(size: 7pt)[विटामिन K], text(size: 7pt)[फाइलोक्विनोन], text(size: 7pt)[रक्त का थक्का न जमना (विलंबित प्रोथ्रोम्बिन काल)]
     )
   ]
 
-  v(10pt)
-  text(size: 11pt, weight: "bold", fill: rgb("#b45309"))[तालिका 4: बिहार विशेष वैज्ञानिक तथ्य सारणी / Bihar Special Science Fact Sheet]
-  v(3pt)
+  v(6pt)
+  text(size: 9.5pt, weight: "bold", fill: rgb("#b45309"))[तालिका 4: बिहार विशेष वैज्ञानिक तथ्य सारणी / Bihar Special Science Fact Sheet]
+  v(2pt)
   align(center)[
     #table(
-      columns: (1.2fr, 2.8fr),
+      columns: (1.1fr, 2.5fr),
       fill: (x, y) => if y == 0 { rgb("#1e293b") } else if calc.even(y) { rgb("#f8fafc") } else { rgb("#ffffff") },
       stroke: 0.5pt + rgb("#cbd5e1"),
-      inset: 5.5pt,
+      inset: 4pt,
       align: (col, row) => if row == 0 { center + horizon } else if col == 0 { left + horizon } else { left + horizon },
       
-      text(weight: "bold", fill: white, size: 8pt)[विषय (Subject Domain)],
-      text(weight: "bold", fill: white, size: 8pt)[प्रामाणिक वैज्ञानिक तथ्य (Authoritative Scientific Facts)],
+      text(weight: "bold", fill: white, size: 7.2pt)[विषय (Subject)],
+      text(weight: "bold", fill: white, size: 7.2pt)[प्रामाणिक वैज्ञानिक तथ्य (Authoritative Facts)],
       
-      [कालाजार (Visceral Leishmaniasis)], [प्रोटोजोआ *Leishmania donovani* द्वारा जनित; वाहक: बालू मक्खी (*Phlebotomus argentipes*); बिहार सरकार व भारत सरकार द्वारा 2024 तक उन्मूलन का लक्ष्य।],
-      [चमकी बुखार (AES)], [तीव्र इंसेफलाइटिस सिंड्रोम; लीची में पाए जाने वाले हाइपोग्लाइसिन-ए (Hypoglycin A) व MCPG विषाक्तता से कुपोषित बच्चों में गंभीर हाइपोग्लाइसीमिया।],
-      [भूजल आर्सेनिक प्रदूषण], [गंगा नदी के मैदानी जिलों (भोजपुर, बक्सर, पटना, समस्तीपुर, भागलपुर आदि) के भूजल में आर्सेनिक की सांद्रता मानक 10 ppb (0.01 mg/L) से अधिक।],
-      [भूजल फ्लोराइड संदूषण], [दक्षिण बिहार के पठारी/सीमावर्ती जिलों (गया, नवादा, जमुई, मुंगेर, बांका) के भूजल में फ्लोराइड अधिकता से फ्लोरोसिस रोग।],
-      [काबरताल / कंवर झील (बेगूसराय)], [बिहार का प्रथम रामसर आर्द्रभूमि स्थल (Ramsar Wetland Site No. 2436); गंडक नदी की अवशिष्ट ऑक्सबो झील (Oxbow Lake)।],
-      [गंगा डॉल्फिन अभयारण्य], [विक्रमशिला गंगा डॉल्फिन अभयारण्य (भागलपुर); गंगा डॉल्फिन (*Platanista gangetica*) भारत का राष्ट्रीय जलीय जीव है।]
+      text(size: 7.2pt)[कालाजार (Leishmaniasis)], text(size: 7.2pt)[प्रोटोजोआ *Leishmania donovani* जनित; वाहक: बालू मक्खी (*Phlebotomus*); बिहार व भारत सरकार द्वारा उन्मूलन लक्ष्य।],
+      text(size: 7.2pt)[चमकी बुखार (AES)], text(size: 7.2pt)[तीव्र इंसेफलाइटिस सिंड्रोम; लीची के हाइपोग्लाइसिन-ए व MCPG विषाक्तता से कुपोषित बच्चों में गंभीर हाइपोग्लाइसीमिया।],
+      text(size: 7.2pt)[भूजल आर्सेनिक प्रदूषण], text(size: 7.2pt)[गंगा मैदानी जिलों (भोजपुर, बक्सर, पटना, समस्तीपुर, भागलपुर आदि) के भूजल में मानक 10 ppb (0.01 mg/L) से अधिक।],
+      text(size: 7.2pt)[भूजल फ्लोराइड संदूषण], text(size: 7.2pt)[दक्षिण बिहार सीमावर्ती जिलों (गया, नवादा, जमुई, मुंगेर, बांका) के भूजल में फ्लोराइड अधिकता से फ्लोरोसिस रोग।],
+      text(size: 7.2pt)[काबरताल झील (बेगूसराय)], text(size: 7.2pt)[बिहार का प्रथम रामसर आर्द्रभूमि स्थल (Site No. 2436); गंडक नदी की अवशिष्ट ऑक्सबो झील (Oxbow Lake)।],
+      text(size: 7.2pt)[गंगा डॉल्फिन अभयारण्य], text(size: 7.2pt)[विक्रमशिला गंगा डॉल्फिन अभयारण्य (भागलपुर); गंगा डॉल्फिन (*Platanista*) भारत का राष्ट्रीय जलीय जीव है।]
     )
   ]
 
@@ -678,39 +679,39 @@
 }
 
 // ---------------------------------------------------------------------------
-// 11. About the Compiler Page
+// 12. About the Compiler Page (6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let about-author-page(author: "Satya Prakash") = {
   heading(level: 1, numbering: none)[संकलनकर्ता परिचय / About the Compiler]
 
-  v(12pt)
+  v(8pt)
   block(
     width: 100%,
     fill: rgb("#f8fafc"),
-    stroke: (left: 4pt + rgb("#1e3a8a"), rest: 0.5pt + rgb("#cbd5e1")),
-    inset: (x: 16pt, y: 14pt),
-    radius: (right: 6pt),
+    stroke: (left: 3.5pt + rgb("#1e3a8a"), rest: 0.5pt + rgb("#cbd5e1")),
+    inset: (x: 12pt, y: 10pt),
+    radius: (right: 5pt),
     [
       #grid(
         columns: (auto, 1fr),
-        gutter: 14pt,
-        box(fill: rgb("#1e3a8a"), inset: (x: 14pt, y: 14pt), radius: 6pt)[
+        gutter: 10pt,
+        box(fill: rgb("#1e3a8a"), inset: (x: 10pt, y: 10pt), radius: 4pt)[
           #align(center + horizon)[
-            #text(size: 20pt, weight: "bold", fill: white)[SP]
+            #text(size: 16pt, weight: "bold", fill: white)[SP]
           ]
         ],
         [
-          #text(size: 14pt, weight: "bold", fill: rgb("#0f172a"))[#author]\
-          #text(size: 9.5pt, fill: rgb("#1e3a8a"), weight: "medium")[Compiler & Student Mentor • Fellow Civil Services Aspirant]\
-          #text(size: 8.5pt, fill: rgb("#64748b"))[Patna, Bihar • GitHub: \@spdedsec • Email: legendsatya7272\@gmail.com]
+          #text(size: 12pt, weight: "bold", fill: rgb("#0f172a"))[#author]\
+          #text(size: 8.2pt, fill: rgb("#1e3a8a"), weight: "medium")[Compiler & Student Mentor • Fellow Civil Services Aspirant]\
+          #text(size: 7.5pt, fill: rgb("#64748b"))[Patna, Bihar • GitHub: \@spdedsec • Email: legendsatya7272\@gmail.com]
         ]
       )
       
-      #v(10pt)
+      #v(6pt)
       #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))
-      #v(8pt)
+      #v(6pt)
       
-      #text(size: 9.2pt)[
+      #text(size: 8.2pt)[
         *सत्य प्रकाश (Satya Prakash)* एक जिज्ञासु अध्येता एवं छात्र-सहयोगी हैं, जो निरंतर प्रतियोगी परीक्षाओं की तैयारी कर रहे विद्यार्थियों की सहायता और व्यावहारिक मार्गदर्शन के प्रयास में संलग्न हैं।
 
         *एक निष्कपट स्वीकारोक्ति (A Candid Note from the Compiler):* \
@@ -727,7 +728,7 @@
 }
 
 // ---------------------------------------------------------------------------
-// 12. Book Back Cover
+// 13. Book Back Cover (6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let book-back-cover(
   edition: "2026 Comprehensive Edition",
@@ -737,51 +738,52 @@
     #block(
       width: 100%,
       fill: rgb("#0f172a"),
-      inset: (x: 24pt, y: 32pt),
-      radius: 8pt,
+      inset: (x: 14pt, y: 16pt),
+      radius: 6pt,
       stroke: 1pt + rgb("#1e293b"),
       [
-        #text(size: 20pt, weight: "bold", fill: rgb("#38bdf8"))[BPSC General Science Question Bank]
-        #v(4pt)
-        #text(size: 14pt, weight: "bold", fill: rgb("#f8fafc"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
+        #text(size: 15pt, weight: "bold", fill: rgb("#38bdf8"))[BPSC General Science Question Bank]
+        #v(3pt)
+        #text(size: 11pt, weight: "bold", fill: rgb("#f8fafc"))[बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक]
         
-        #v(10pt)
+        #v(6pt)
         #line(length: 50%, stroke: 1.5pt + rgb("#38bdf8"))
-        #v(12pt)
+        #v(6pt)
         
         #align(left)[
-          #text(size: 10pt, weight: "bold", fill: rgb("#67e8f9"))[पुस्तक की प्रमुख विशेषताएं / Salient Features of the Book:]
-          #v(6pt)
-          #text(size: 9pt, fill: rgb("#e2e8f0"))[
+          #text(size: 8.5pt, weight: "bold", fill: rgb("#67e8f9"))[पुस्तक की प्रमुख विशेषताएं / Salient Features of the Book:]
+          #v(3pt)
+          #text(size: 7.5pt, fill: rgb("#e2e8f0"))[
             • *100% प्रत्यक्ष प्रश्नोत्तर प्रारूप (Direct Q&A):* 4-विकल्पों वाले भ्रामक प्रश्नों के स्थान पर सीधे प्रश्न और अचूक उत्तर।\
             • *प्रामाणिक BPSC विगत वर्ष प्रश्न (56वीं से 70वीं CCE):* सभी वास्तविक विज्ञान प्रश्नों का पूर्ण समावेश।\
             • *उच्च-प्रासंगिक विस्तार (Syllabus-Adjacent):* परीक्षा के बदलते पैटर्न के अनुरूप गहन NCERT-आधारित प्रश्न।\
             • *द्विभाषी संयोजन (Bilingual Stacked Presentation):* प्रत्येक प्रश्न का अंग्रेजी और मानक देवनागरी हिंदी में समानांतर प्रस्तुतीकरण।\
+            • *संज्ञानात्मक शिक्षण एवं स्मृति संवर्धन सूत्र:* विस्मृति वक्र, सक्रिय स्मरण, 1-3-7-21 अंतराल पुनरावृत्ति एवं ऋणात्मक अंकन प्रबंधन।\
             • *बिहार विशेष विज्ञान एवं पर्यावरण खंड:* कालाजार, एईएस (AES), भूजल प्रदूषण तथा आर्द्रभूमि पर विशेष अध्याय।\
             • *परिशिष्ट में त्वरित पुनरावलोकन तालिकाएं:* भौतिक नियतांक, उपकरण, विटामिन और बिहार वैज्ञानिक तथ्य पत्रक।
           ]
           
-          #v(14pt)
-          #text(size: 10pt, weight: "bold", fill: rgb("#86efac"))[उपयोगिता / Recommended For:]
-          #v(4pt)
-          #text(size: 8.8pt, fill: rgb("#cbd5e1"))[
+          #v(8pt)
+          #text(size: 8.5pt, weight: "bold", fill: rgb("#86efac"))[उपयोगिता / Recommended For:]
+          #v(2pt)
+          #text(size: 7.2pt, fill: rgb("#cbd5e1"))[
             BPSC संयुक्त प्रतियोगिता परीक्षा (CCE Prelims), CDPO, सहायक (Assistant), सांख्यिकी अधिकारी (ASO), बिहार दरोगा (SI), तथा अन्य राज्य लोक सेवा आयोग परीक्षाओं के सामान्य विज्ञान प्रश्न-पत्र हेतु अनिवार्य संदर्भ पुस्तक।
           ]
         ]
         
-        #v(20pt)
-        #line(length: 100%, stroke: 0.5pt + rgb("#334155"))
         #v(12pt)
+        #line(length: 100%, stroke: 0.5pt + rgb("#334155"))
+        #v(6pt)
         
         #grid(
           columns: (1fr, 1fr),
           align(left)[
-            #text(size: 9.5pt, weight: "bold", fill: rgb("#ffffff"))[Compiled and Authored by #author]\
-            #text(size: 8pt, fill: rgb("#94a3b8"))[Civil Services Science Editorial Series]
+            #text(size: 8pt, weight: "bold", fill: rgb("#ffffff"))[Compiled by #author]\
+            #text(size: 6.8pt, fill: rgb("#94a3b8"))[Dedicated to Civil Services Aspirants]
           ],
           align(right)[
-            #box(fill: rgb("#1e293b"), inset: (x: 10pt, y: 5pt), radius: 3pt)[
-              #text(size: 8.5pt, weight: "bold", fill: rgb("#38bdf8"))[#edition]
+            #box(fill: rgb("#1e293b"), inset: (x: 8pt, y: 3pt), radius: 3pt)[
+              #text(size: 7.2pt, weight: "bold", fill: rgb("#38bdf8"))[#edition • 6"×9" Trade]
             ]
           ]
         )

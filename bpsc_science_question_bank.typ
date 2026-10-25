@@ -27,6 +27,8 @@
   total-count: 812,
 )
 
+#psychological-strategies-section()
+
 #outline(title: "विषय सूची / Table of Contents", indent: auto, depth: 2)
 
 #chapter-header(
