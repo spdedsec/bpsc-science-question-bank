@@ -1,6 +1,6 @@
 # BPSC General Science Question Bank & Study Book (68th–70th CCE Pattern)
 
-> **Compiled by Satya Prakash**  
+> **Authored and Compiled by Satya Prakash**  
 > *A Publication-Grade, Bilingual (English & Hindi) Direct Question & Answer Monograph for Bihar Public Service Commission (BPSC) Combined Competitive Examinations.*
 
 [![BPSC Science Status](https://img.shields.io/badge/BPSC%20CCE-68th--70th%20Pattern-blue.svg)](https://github.com/spdedsec/bpsc-science-question-bank)
@@ -23,7 +23,7 @@ Unlike generic market guides that republish multiple-choice questions with misle
 
 ## Key Highlights & Innovations
 
-1. **Compiled by Satya Prakash for Aspirants**: Developed genuinely to help students master the modernized BPSC CCE pattern through high-yield direct Q&A, standard NCERT/State Board alignment, and in-depth scrutiny of authentic BPSC Preliminary Examination trends from the 56th–59th through the 70th CCE.
+1. **Authored and Compiled by Satya Prakash for Aspirants**: Developed genuinely to help students master the modernized BPSC CCE pattern through high-yield direct Q&A, standard NCERT/State Board alignment, and in-depth scrutiny of authentic BPSC Preliminary Examination trends from the 56th–59th through the 70th CCE.
 2. **100% Symmetrical Bilingual Text**: Every entry provides authentic English phrasing paired directly with high-standard Devanagari Hindi translation, using official civil services scientific terminology (*पारिभाषिक शब्दावली*).
 3. **Strict 0% Multiple-Choice Distractors**: Contains **zero** ABCD/E options, eliminated misleading stems (*"Which of the following"*, *"निम्नलिखित में से"*), and excised deceptive 5th options (*"None of the above / More than one of the above"*).
 4. **Dedicated Bihar Science & Environment Module**: 78 specialized questions addressing Bihar-specific epidemiology (Kala-azar, AES/Chamki Fever), hydrogeological groundwater hazards (Arsenic and Fluoride belts), agro-climatic zones, soils, GI crops, and biodiversity sanctuaries (Kabartal Wetland, Valmiki Tiger Reserve).
@@ -127,7 +127,7 @@ The primary output artifact is `bpsc_science_question_bank.pdf`, generated direc
 ```
 
 ### Complete 13-Section Publication Apparatus
-1. **Front Cover**: High-impact, full-bleed graphic cover featuring book title, 68th–70th CCE pattern badges, syllabus scope, and prominent compiler credit: **"Compiled by Satya Prakash"**.
+1. **Front Cover**: High-impact, full-bleed graphic cover featuring book title, 68th–70th CCE pattern badges, syllabus scope, and prominent author/compiler credit: **"Authored and Compiled by Satya Prakash"**.
 2. **Half Title Page**: Formal pre-title page.
 3. **Full Title Page**: Publisher and bibliographic metadata including edition, ISBN reservation, and author credentials.
 4. **Copyright & Publication Metadata**: Cataloging-in-publication data, copyright notice, legal disclaimers, open educational mission.
@@ -142,7 +142,7 @@ The primary output artifact is `bpsc_science_question_bank.pdf`, generated direc
     - Table 2: Common Chemical Names, Commercial Names & Chemical Formulas.
     - Table 3: Vitamins, Coenzymes, Dietary Sources & Pathological Syndromes.
     - Table 4: Key Public Health Indicators & Environmental Standards of Bihar.
-12. **About the Compiler Page**: Candid, humble note from Satya Prakash—stating plainly that he is not a master of everything, but compiled this high-yield resource genuinely to assist fellow students and aspirants.
+12. **About the Author Page**: Candid, humble note from Satya Prakash—stating plainly that he is not a master of everything, but compiled this high-yield resource genuinely to assist fellow students and aspirants.
 13. **Back Cover**: Monograph synopsis, key pedagogical features, target competitive examinations (BPSC CCE, BPSC CDPO, BPSC Assistant Audit Officer, Bihar SI, BSSC CGL), barcode, and publishing colophon.
 
 ---

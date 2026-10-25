@@ -250,7 +250,7 @@ def generate_typst_document(
     - Table of Contents
     - Subject Chapters & Stacked Bilingual Question Cards
     - Quick Revision Appendix (Constants, Instruments, Vitamins, Bihar facts)
-    - About the Compiler Page
+    - About the Author Page
     - Back Cover
     """
     lines: List[str] = []
@@ -368,7 +368,7 @@ def generate_typst_document(
     lines.append("#revision-appendix()")
     lines.append("")
 
-    # 10. About the Compiler Page
+    # 10. About the Author Page
     lines.append(f"#about-author-page(author: {typst_str(author)})")
     lines.append("")
 

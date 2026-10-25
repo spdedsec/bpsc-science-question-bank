@@ -103,7 +103,7 @@
           
           #v(14pt)
           #box(fill: rgb("#1e3a8a"), inset: (x: 14pt, y: 6pt), radius: 4pt, stroke: 1pt + rgb("#38bdf8"))[
-            #text(size: 9.5pt, weight: "bold", fill: rgb("#ffffff"))[Compiled by #author for Civil Services Aspirants]
+            #text(size: 9.5pt, weight: "bold", fill: rgb("#ffffff"))[Authored and Compiled by #author for Civil Services Aspirants]
           ]
           
           #v(16pt)
@@ -169,7 +169,7 @@
     #line(length: 35%, stroke: 1.5pt + rgb("#1e3a8a"))
     #v(12pt)
     #text(size: 9.5pt, weight: "medium", fill: rgb("#64748b"))[
-      Compiled for Civil Services Aspirants by\
+      Authored and Compiled for Civil Services Aspirants by\
       #text(weight: "bold", fill: rgb("#0f172a"))[#author]
     ]
   ]
@@ -199,7 +199,7 @@
     
     #v(20pt)
     #box(fill: rgb("#f1f5f9"), inset: (x: 14pt, y: 8pt), radius: 4pt, stroke: 1pt + rgb("#cbd5e1"))[
-      #text(size: 8.5pt, fill: rgb("#475569"))[Compiled by]\
+      #text(size: 8.5pt, fill: rgb("#475569"))[Authored and Compiled by]\
       #v(2pt)
       #text(size: 12pt, weight: "bold", fill: rgb("#0f172a"))[#author]\
       #v(1pt)
@@ -227,7 +227,7 @@
       *बीपीएससी सामान्य विज्ञान प्रश्न बैंक एवं अध्ययन पुस्तक* \
       Bilingual Direct Q&A Comprehensive Monograph (English & Hindi) \
       \
-      *Compiled by:* #author \
+      *Authored and Compiled by:* #author \
       *First Edition:* 2026 (6" × 9" US Trade Paperback Format) \
       *Series:* BPSC CCE General Studies Reference Series \
       \
@@ -717,10 +717,10 @@
 }
 
 // ---------------------------------------------------------------------------
-// 12. About the Compiler Page (6" × 9" Trade Paperback)
+// 12. About the Author Page (6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let about-author-page(author: "Satya Prakash") = {
-  heading(level: 1, numbering: none)[संकलनकर्ता परिचय / About the Compiler]
+  heading(level: 1, numbering: none)[लेखक एवं संकलनकर्ता परिचय / About the Author]
 
   v(8pt)
   block(
@@ -740,7 +740,7 @@
         ],
         [
           #text(size: 12pt, weight: "bold", fill: rgb("#0f172a"))[#author]\
-          #text(size: 8.2pt, fill: rgb("#1e3a8a"), weight: "medium")[Compiler • Fellow Civil Services Aspirant]\
+          #text(size: 8.2pt, fill: rgb("#1e3a8a"), weight: "medium")[Author & Compiler • Fellow Civil Services Aspirant]\
           #text(size: 7.5pt, fill: rgb("#64748b"))[Patna, Bihar • GitHub: \@spdedsec • Email: legendsatya7272\@gmail.com]
         ]
       )
@@ -752,12 +752,12 @@
       #text(size: 8.4pt)[
         *सत्य प्रकाश (Satya Prakash)* एक जिज्ञासु अध्येता एवं छात्र हैं, जो निरंतर प्रतियोगी परीक्षाओं की तैयारी कर रहे विद्यार्थियों की सहायता के प्रयास में संलग्न हैं।
 
-        *एक निष्कपट स्वीकारोक्ति (A Candid Note from the Compiler):* \
+        *एक निष्कपट स्वीकारोक्ति (A Candid Note from the Author):* \
         "मैं स्वयं किसी विषय का सर्वज्ञाता या कोई विशेषज्ञ होने का कोई दावा नहीं करता। हर सामान्य अभ्यर्थी की तरह मैं भी निरंतर सीख रहा हूँ और अध्ययनरत हूँ। परीक्षाओं की तैयारी के दौरान छात्रों के सामने आने वाली व्यावहारिक कठिनाइयों को देखते हुए—विशेषकर भ्रामक बहुविकल्पीय विकल्पों के कारण होने वाले संशय और नकारात्मक अंकन (-0.33) के नुकसान से बचने के लिए—मैंने यह प्रामाणिक प्रत्यक्ष प्रश्नोत्तर (Direct Q&A) बैंक संकलित किया है।
 
         यह संपूर्ण प्रयास केवल और केवल अपने साथी अभ्यर्थियों के सहयोग और लाभ के उद्देश्य से किया गया है, ताकि सभी को एक स्थान पर ठोस, सटीक और स्पष्ट अध्ययन सामग्री सुलभ हो सके।"
 
-        *About the Compiler:* \
+        *About the Author:* \
         Satya Prakash is an aspirant and learner dedicated simply to helping fellow students navigate their competitive exam preparation. He emphasizes candidly that he is not a master of everything or an exam expert, recognizing openly that learning is a continuous personal journey. Observing how misleading MCQ distractors cause hesitation and induce severe negative marking penalties (-0.33), he compiled this 812-question bilingual question bank genuinely for the sake and benefit of aspirants.
       ]
     ]
