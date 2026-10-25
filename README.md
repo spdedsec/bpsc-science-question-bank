@@ -126,23 +126,24 @@ The primary output artifact is `bpsc_science_question_bank.pdf`, generated direc
 └───────────────────────┴────────────────────────────────────────────────┘
 ```
 
-### Complete 12-Section Publication Apparatus
-1. **Front Cover**: High-impact, full-bleed graphic cover featuring book title, 68th–70th CCE pattern badges, syllabus scope, and prominent author credit: **"Compiled and Authored by Satya Prakash"**.
+### Complete 13-Section Publication Apparatus
+1. **Front Cover**: High-impact, full-bleed graphic cover featuring book title, 68th–70th CCE pattern badges, syllabus scope, and prominent compiler credit: **"Compiled by Satya Prakash"**.
 2. **Half Title Page**: Formal pre-title page.
 3. **Full Title Page**: Publisher and bibliographic metadata including edition, ISBN reservation, and author credentials.
 4. **Copyright & Publication Metadata**: Cataloging-in-publication data, copyright notice, legal disclaimers, open educational mission.
 5. **Preface / प्राक्कथन**: Extended foreword by compiler **Satya Prakash** outlining pedagogical motivations, BPSC pattern shifts, negative marking strategy, and study recommendations.
 6. **BPSC Exam Blueprint & Trend Analysis**: Analytical charts, historical science question weightage (56th–59th to 70th CCE), subject breakdown percentages, and difficulty progression.
-7. **Table of Contents / विषय सूची**: Complete hierarchically indented outline (`#outline(indent: auto, depth: 2)`) with automated Roman-to-Arabic page numbering.
-8. **Subject Section Dividers**: Full-page ornamental dividers for Physics (*भौतिक विज्ञान*), Chemistry (*रसायन विज्ञान*), Biology (*जीव विज्ञान*), and Bihar Science & Environment (*बिहार विशेष विज्ञान एवं पर्यावरण*).
-9. **Body Question Monograph**: 812 dual-column stacked bilingual Q&A blocks, each framed with a distinct left accent border, unique identifier, exam citation, and dual-language text.
-10. **Appendix — High-Yield Revision Tables**:
+7. **Cognitive Learning Strategies & Memory Mastery**: In-depth psychological guide covering the Testing Effect, 1-3-7-21 spaced repetition algorithm, science mnemonic hooks, 1/3rd negative marking decision matrix, and cortisol/anxiety regulation.
+8. **Table of Contents / विषय सूची**: Complete hierarchically indented outline (`#outline(indent: auto, depth: 2)`) with automated Roman-to-Arabic page numbering.
+9. **Subject Section Dividers**: Full-page ornamental dividers for Physics (*भौतिक विज्ञान*), Chemistry (*रसायन विज्ञान*), Biology (*जीव विज्ञान*), and Bihar Science & Environment (*बिहार विशेष विज्ञान एवं पर्यावरण*).
+10. **Body Question Monograph**: 812 dual-column stacked bilingual Q&A blocks, each framed with a distinct left accent border, unique identifier, exam citation, and dual-language text.
+11. **Appendix — High-Yield Revision Tables**:
     - Table 1: Fundamental Physical Constants & SI Base/Derived Units.
     - Table 2: Common Chemical Names, Commercial Names & Chemical Formulas.
     - Table 3: Vitamins, Coenzymes, Dietary Sources & Pathological Syndromes.
     - Table 4: Key Public Health Indicators & Environmental Standards of Bihar.
-11. **About the Compiler Page**: Candid, humble note from Satya Prakash—stating plainly that he is not a master of everything, but compiled this high-yield resource genuinely to assist fellow students and aspirants.
-12. **Back Cover**: Monograph synopsis, key pedagogical features, target competitive examinations (BPSC CCE, BPSC CDPO, BPSC Assistant Audit Officer, Bihar SI, BSSC CGL), barcode, and publishing colophon.
+12. **About the Compiler Page**: Candid, humble note from Satya Prakash—stating plainly that he is not a master of everything, but compiled this high-yield resource genuinely to assist fellow students and aspirants.
+13. **Back Cover**: Monograph synopsis, key pedagogical features, target competitive examinations (BPSC CCE, BPSC CDPO, BPSC Assistant Audit Officer, Bihar SI, BSSC CGL), barcode, and publishing colophon.
 
 ---
 

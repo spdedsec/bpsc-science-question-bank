@@ -246,6 +246,7 @@ def generate_typst_document(
     - Copyright & Metadata Page
     - Compiler's Foreword / Note by Satya Prakash
     - Exam Blueprint & Weightage Table
+    - Psychological Learning Strategies & Memory Mastery Guide
     - Table of Contents
     - Subject Chapters & Stacked Bilingual Question Cards
     - Quick Revision Appendix (Constants, Instruments, Vitamins, Bihar facts)
@@ -303,7 +304,11 @@ def generate_typst_document(
     lines.append(")")
     lines.append("")
 
-    # 8. Table of Contents
+    # 8. Psychological Learning Strategies & Memory Mastery Guide
+    lines.append("#psychological-strategies-section()")
+    lines.append("")
+
+    # 9. Table of Contents
     lines.append('#outline(title: "विषय सूची / Table of Contents", indent: auto, depth: 2)')
     lines.append("")
 
