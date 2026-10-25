@@ -15,7 +15,7 @@
 
 ## Frontispiece & Overview
 
-The **BPSC General Science Question Bank & Study Book** is a comprehensive, publication-grade academic and civil services reference volume authored by **Satya Prakash**. Tailored specifically for the modernized examination landscape inaugurated in the **68th, 69th, and 70th BPSC Combined Competitive Examinations (CCE)**—which introduced negative marking (one-third penalty) and retired simplistic one-liner rote questions—this book delivers **812 curated bilingual questions and authoritative scientific explanations**.
+The **BPSC General Science Question Bank & Study Book** is a comprehensive, publication-grade academic and civil services reference volume compiled by **Satya Prakash** for the benefit of fellow aspirants. Tailored specifically for the modernized examination landscape inaugurated in the **68th, 69th, and 70th BPSC Combined Competitive Examinations (CCE)**—which introduced negative marking (one-third penalty) and retired simplistic one-liner rote questions—this book delivers **812 curated bilingual questions and authoritative scientific explanations**.
 
 Unlike generic market guides that republish multiple-choice questions with misleading distractors, this work implements a **pure direct Question & Answer methodology**. Every entry is presented with its verified scientific explanation, enabling rapid active recall, precision revision, and complete conceptual mastery without negative marking traps.
 
@@ -23,7 +23,7 @@ Unlike generic market guides that republish multiple-choice questions with misle
 
 ## Key Highlights & Innovations
 
-1. **Authored by Satya Prakash**: Developed with rigorous academic fidelity, standard NCERT/State Board alignment, and in-depth scrutiny of authentic BPSC Preliminary Examination trends from the 56th–59th through the 70th CCE.
+1. **Compiled by Satya Prakash for Aspirants**: Developed genuinely to help students master the modernized BPSC CCE pattern through high-yield direct Q&A, standard NCERT/State Board alignment, and in-depth scrutiny of authentic BPSC Preliminary Examination trends from the 56th–59th through the 70th CCE.
 2. **100% Symmetrical Bilingual Text**: Every entry provides authentic English phrasing paired directly with high-standard Devanagari Hindi translation, using official civil services scientific terminology (*पारिभाषिक शब्दावली*).
 3. **Strict 0% Multiple-Choice Distractors**: Contains **zero** ABCD/E options, eliminated misleading stems (*"Which of the following"*, *"निम्नलिखित में से"*), and excised deceptive 5th options (*"None of the above / More than one of the above"*).
 4. **Dedicated Bihar Science & Environment Module**: 78 specialized questions addressing Bihar-specific epidemiology (Kala-azar, AES/Chamki Fever), hydrogeological groundwater hazards (Arsenic and Fluoride belts), agro-climatic zones, soils, GI crops, and biodiversity sanctuaries (Kabartal Wetland, Valmiki Tiger Reserve).
@@ -131,7 +131,7 @@ The primary output artifact is `bpsc_science_question_bank.pdf`, generated direc
 2. **Half Title Page**: Formal pre-title page.
 3. **Full Title Page**: Publisher and bibliographic metadata including edition, ISBN reservation, and author credentials.
 4. **Copyright & Publication Metadata**: Cataloging-in-publication data, copyright notice, legal disclaimers, open educational mission.
-5. **Preface / प्राक्कथन**: Extended author's foreword by **Satya Prakash** outlining pedagogical motivations, BPSC pattern shifts, negative marking strategy, and study recommendations.
+5. **Preface / प्राक्कथन**: Extended foreword by compiler **Satya Prakash** outlining pedagogical motivations, BPSC pattern shifts, negative marking strategy, and study recommendations.
 6. **BPSC Exam Blueprint & Trend Analysis**: Analytical charts, historical science question weightage (56th–59th to 70th CCE), subject breakdown percentages, and difficulty progression.
 7. **Table of Contents / विषय सूची**: Complete hierarchically indented outline (`#outline(indent: auto, depth: 2)`) with automated Roman-to-Arabic page numbering.
 8. **Subject Section Dividers**: Full-page ornamental dividers for Physics (*भौतिक विज्ञान*), Chemistry (*रसायन विज्ञान*), Biology (*जीव विज्ञान*), and Bihar Science & Environment (*बिहार विशेष विज्ञान एवं पर्यावरण*).
@@ -141,7 +141,7 @@ The primary output artifact is `bpsc_science_question_bank.pdf`, generated direc
     - Table 2: Common Chemical Names, Commercial Names & Chemical Formulas.
     - Table 3: Vitamins, Coenzymes, Dietary Sources & Pathological Syndromes.
     - Table 4: Key Public Health Indicators & Environmental Standards of Bihar.
-11. **About the Author Page**: Bio of Satya Prakash, engineering/data science background, civil services curriculum design experience, and contact channels.
+11. **About the Compiler Page**: Candid, humble note from Satya Prakash—stating plainly that he is not a master of everything, but compiled this high-yield resource genuinely to assist fellow students and aspirants.
 12. **Back Cover**: Monograph synopsis, key pedagogical features, target competitive examinations (BPSC CCE, BPSC CDPO, BPSC Assistant Audit Officer, Bihar SI, BSSC CGL), barcode, and publishing colophon.
 
 ---
@@ -284,14 +284,14 @@ The script automatically:
 
 ---
 
-## Author & Citation
+## Compiler & Citation
 
-### Author Profile
+### Compiler Profile
 **Satya Prakash**  
 - **GitHub**: [@spdedsec](https://github.com/spdedsec)  
 - **Email**: [legendsatya7272@gmail.com](mailto:legendsatya7272@gmail.com)  
-- **Role**: Author, Technical Compiler & Research Lead  
-- **Expertise**: Systems Engineering, Open-Source Science Curriculum Development, BPSC/Civil Services Examination Analytics.
+- **Role**: Technical Compiler & Student Mentor  
+- **Perspective**: A dedicated learner and fellow aspirant committed to helping students navigate competitive examinations. Candidly acknowledging that he is not a master of everything or an academic guru, he compiled this high-yield bilingual question bank genuinely for the benefit of fellow BPSC aspirants.
 
 ### Bibliographic Citation
 ```bibtex

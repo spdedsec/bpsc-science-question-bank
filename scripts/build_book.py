@@ -242,14 +242,14 @@ def generate_typst_document(
     Incorporates full publication apparatus:
     - Eye-catching Front Cover
     - Half Title Page
-    - Full Title Page (with Satya Prakash attribution)
+    - Full Title Page (Compiled by Satya Prakash)
     - Copyright & Metadata Page
-    - Author's Preface / Note by Satya Prakash
+    - Compiler's Foreword / Note by Satya Prakash
     - Exam Blueprint & Weightage Table
     - Table of Contents
     - Subject Chapters & Stacked Bilingual Question Cards
     - Quick Revision Appendix (Constants, Instruments, Vitamins, Bihar facts)
-    - About the Author Page
+    - About the Compiler Page
     - Back Cover
     """
     lines: List[str] = []
@@ -283,7 +283,7 @@ def generate_typst_document(
     lines.append(f"#copyright-page(author: {typst_str(author)})")
     lines.append("")
 
-    # 6. Author's Note / Preface by Satya Prakash
+    # 6. Compiler's Foreword / Note by Satya Prakash
     lines.append(f"#preface-author-note(author: {typst_str(author)})")
     lines.append("")
 
@@ -363,7 +363,7 @@ def generate_typst_document(
     lines.append("#revision-appendix()")
     lines.append("")
 
-    # 10. About the Author Page
+    # 10. About the Compiler Page
     lines.append(f"#about-author-page(author: {typst_str(author)})")
     lines.append("")
 
