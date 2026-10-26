@@ -475,12 +475,20 @@ def verify_pdf_output(pdf_path: str) -> Dict[str, Any]:
     result["pages"] = get_pdf_page_count(pdf_path)
 
     if check_kdp_print_margins:
-        kdp_ok, kdp_viols = check_kdp_print_margins(pdf_path)
-        result["kdp_margins_valid"] = kdp_ok
-        result["kdp_violations"] = kdp_viols
+        try:
+            kdp_ok, kdp_viols, kdp_stats = check_kdp_print_margins(pdf_path, include_details=True)
+            result["kdp_margins_valid"] = kdp_ok
+            result["kdp_violations"] = kdp_viols
+            result["kdp_margin_stats"] = kdp_stats
+        except Exception:
+            kdp_ok, kdp_viols = check_kdp_print_margins(pdf_path)
+            result["kdp_margins_valid"] = kdp_ok
+            result["kdp_violations"] = kdp_viols
+            result["kdp_margin_stats"] = None
     else:
         result["kdp_margins_valid"] = None
         result["kdp_violations"] = []
+        result["kdp_margin_stats"] = None
 
     return result
 
@@ -609,6 +617,12 @@ def main(argv: Optional[List[str]] = None) -> int:
     if verif.get("kdp_margins_valid") is not None:
         kdp_status_str = "Compliant ✅ (Gutter >= 0.625\", Outside/Top/Bottom >= 0.25\")" if verif["kdp_margins_valid"] else "FAILED ❌"
         print(f"    • KDP Margins   : {kdp_status_str}")
+        stats = verif.get("kdp_margin_stats")
+        if stats and stats.get("total_pages_checked", 0) > 0:
+            print(f"      - Gutter min  : {stats['min_gutter_pt']:.2f} pt ({stats['min_gutter_in']:.3f}\") on p.{stats['min_gutter_page']} (req >= 0.625\")")
+            print(f"      - Outside min : {stats['min_outside_pt']:.2f} pt ({stats['min_outside_in']:.3f}\") on p.{stats['min_outside_page']} (req >= 0.250\")")
+            print(f"      - Top min     : {stats['min_top_pt']:.2f} pt ({stats['min_top_in']:.3f}\") on p.{stats['min_top_page']} (req >= 0.250\")")
+            print(f"      - Bottom min  : {stats['min_bottom_pt']:.2f} pt ({stats['min_bottom_in']:.3f}\") on p.{stats['min_bottom_page']} (req >= 0.250\")")
 
     if not verif["exists"] or not verif["valid_magic"] or not verif["valid_trailer"] or verif["size_bytes"] < 1000 or verif.get("kdp_margins_valid") is False:
         print("❌ PDF verification failed!")

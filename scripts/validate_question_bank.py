@@ -316,14 +316,36 @@ def check_kdp_print_margins(
     min_outside_in: float = 0.25,
     min_top_in: float = 0.25,
     min_bottom_in: float = 0.25,
-) -> Tuple[Optional[bool], List[str]]:
+    include_details: bool = False,
+) -> Any:
     """
     Verify that all text elements in the PDF respect Amazon KDP Print safe zones:
     - Gutter (inside margin) >= 0.625" (15.875mm / 45.0 pt)
     - Outside margin >= 0.25" (6.35mm / 18.0 pt)
     - Top & Bottom margins >= 0.25" (6.35mm / 18.0 pt)
-    Returns (is_compliant, list_of_violations).
+    If include_details=False, returns (is_compliant, list_of_violations).
+    If include_details=True, returns (is_compliant, list_of_violations, stats_dict).
     """
+    stats: Dict[str, Any] = {
+        "min_gutter_pt": 999.0,
+        "min_gutter_in": 999.0,
+        "min_gutter_page": 0,
+        "min_gutter_word": "",
+        "min_outside_pt": 999.0,
+        "min_outside_in": 999.0,
+        "min_outside_page": 0,
+        "min_outside_word": "",
+        "min_top_pt": 999.0,
+        "min_top_in": 999.0,
+        "min_top_page": 0,
+        "min_top_word": "",
+        "min_bottom_pt": 999.0,
+        "min_bottom_in": 999.0,
+        "min_bottom_page": 0,
+        "min_bottom_word": "",
+        "total_pages_checked": 0,
+    }
+
     try:
         res = subprocess.run(
             ["pdftotext", "-bbox", pdf_path, "-"],
@@ -332,20 +354,27 @@ def check_kdp_print_margins(
             timeout=25,
         )
         if res.returncode != 0:
+            if include_details:
+                return None, ["pdftotext execution failed"], stats
             return None, ["pdftotext execution failed"]
     except (FileNotFoundError, subprocess.SubprocessError):
+        if include_details:
+            return None, [], stats
         return None, []
 
     page_chunks = res.stdout.split("<page ")
     if len(page_chunks) <= 1:
+        if include_details:
+            return True, [], stats
         return True, []
 
-    min_gutter_pt = min_gutter_in * 72.0 - 0.2
-    min_outside_pt = min_outside_in * 72.0 - 0.2
-    min_top_pt = min_top_in * 72.0 - 0.2
-    min_bottom_pt = min_bottom_in * 72.0 - 0.2
+    min_gutter_pt = min_gutter_in * 72.0
+    min_outside_pt = min_outside_in * 72.0
+    min_top_pt = min_top_in * 72.0
+    min_bottom_pt = min_bottom_in * 72.0
 
     violations: List[str] = []
+    stats["total_pages_checked"] = len(page_chunks) - 1
 
     for p_num, chunk in enumerate(page_chunks[1:], start=1):
         m_dim = re.search(r'width="([0-9.]+)"\s+height="([0-9.]+)"', chunk)
@@ -361,28 +390,50 @@ def check_kdp_print_margins(
         )
         for xmin, ymin, xmax, ymax, w in words:
             x1, y1, x2, y2 = float(xmin), float(ymin), float(xmax), float(ymax)
+            d_top = y1
+            d_bot = p_h - y2
+            d_gut = x1 if is_odd else (p_w - x2)
+            d_out = (p_w - x2) if is_odd else x1
 
-            if y1 < min_top_pt:
-                violations.append(f"Page {p_num}: Top margin violation ({y1:.2f}pt < {min_top_pt:.2f}pt) on '{w}'")
-            if (p_h - y2) < min_bottom_pt:
-                violations.append(f"Page {p_num}: Bottom margin violation ({p_h - y2:.2f}pt < {min_bottom_pt:.2f}pt) on '{w}'")
+            if d_top < stats["min_top_pt"]:
+                stats["min_top_pt"] = d_top
+                stats["min_top_in"] = d_top / 72.0
+                stats["min_top_page"] = p_num
+                stats["min_top_word"] = w
 
-            if is_odd:
-                dist_gutter = x1
-                dist_outside = p_w - x2
-            else:
-                dist_gutter = p_w - x2
-                dist_outside = x1
+            if d_bot < stats["min_bottom_pt"]:
+                stats["min_bottom_pt"] = d_bot
+                stats["min_bottom_in"] = d_bot / 72.0
+                stats["min_bottom_page"] = p_num
+                stats["min_bottom_word"] = w
 
-            if dist_gutter < min_gutter_pt:
+            if d_gut < stats["min_gutter_pt"]:
+                stats["min_gutter_pt"] = d_gut
+                stats["min_gutter_in"] = d_gut / 72.0
+                stats["min_gutter_page"] = p_num
+                stats["min_gutter_word"] = w
+
+            if d_out < stats["min_outside_pt"]:
+                stats["min_outside_pt"] = d_out
+                stats["min_outside_in"] = d_out / 72.0
+                stats["min_outside_page"] = p_num
+                stats["min_outside_word"] = w
+
+            if d_top < min_top_pt:
+                violations.append(f"Page {p_num}: Top margin violation ({d_top:.2f}pt < {min_top_pt:.2f}pt) on '{w}'")
+            if d_bot < min_bottom_pt:
+                violations.append(f"Page {p_num}: Bottom margin violation ({d_bot:.2f}pt < {min_bottom_pt:.2f}pt) on '{w}'")
+            if d_gut < min_gutter_pt:
                 violations.append(
-                    f"Page {p_num}: Gutter margin violation ({dist_gutter:.2f}pt < {min_gutter_pt:.2f}pt, odd={is_odd}) on '{w}'"
+                    f"Page {p_num}: Gutter margin violation ({d_gut:.2f}pt < {min_gutter_pt:.2f}pt, odd={is_odd}) on '{w}'"
                 )
-            if dist_outside < min_outside_pt:
+            if d_out < min_outside_pt:
                 violations.append(
-                    f"Page {p_num}: Outside margin violation ({dist_outside:.2f}pt < {min_outside_pt:.2f}pt) on '{w}'"
+                    f"Page {p_num}: Outside margin violation ({d_out:.2f}pt < {min_outside_pt:.2f}pt) on '{w}'"
                 )
 
+    if include_details:
+        return (len(violations) == 0), violations, stats
     return (len(violations) == 0), violations
 
 
@@ -468,9 +519,10 @@ def validate_pdf_file(pdf_path: str, min_size_bytes: int = 1000) -> Tuple[bool, 
         pass
 
     # Amazon KDP Print safe margin check (gutter >= 0.625", outside/top/bottom >= 0.25")
-    kdp_ok, kdp_viols = check_kdp_print_margins(pdf_path)
+    kdp_ok, kdp_viols, kdp_stats = check_kdp_print_margins(pdf_path, include_details=True)
     if kdp_ok is not None:
         status["kdp_margins_valid"] = kdp_ok
+        status["kdp_margin_stats"] = kdp_stats
         if not kdp_ok:
             for viol in kdp_viols[:5]:
                 errors.append(f"KDP Margin violation: {viol}")
@@ -540,6 +592,12 @@ def format_report_text(report: ValidationReport, show_details: bool = True) -> s
         if report.pdf_status.get("kdp_margins_valid") is not None:
             kdp_disp = "Compliant ✅ (Gutter >= 0.625\", Outside/Top/Bottom >= 0.25\")" if report.pdf_status["kdp_margins_valid"] else "VIOLATION ❌"
             lines.append(f"  • KDP Margins  : {kdp_disp}")
+            stats = report.pdf_status.get("kdp_margin_stats")
+            if stats and stats.get("total_pages_checked", 0) > 0:
+                lines.append(f"    - Gutter min : {stats['min_gutter_pt']:.2f} pt ({stats['min_gutter_in']:.3f}\") on p.{stats['min_gutter_page']} (req >= 0.625\")")
+                lines.append(f"    - Outside min: {stats['min_outside_pt']:.2f} pt ({stats['min_outside_in']:.3f}\") on p.{stats['min_outside_page']} (req >= 0.250\")")
+                lines.append(f"    - Top min    : {stats['min_top_pt']:.2f} pt ({stats['min_top_in']:.3f}\") on p.{stats['min_top_page']} (req >= 0.250\")")
+                lines.append(f"    - Bottom min : {stats['min_bottom_pt']:.2f} pt ({stats['min_bottom_in']:.3f}\") on p.{stats['min_bottom_page']} (req >= 0.250\")")
 
     if report.errors:
         lines.append("=" * 72)

@@ -484,6 +484,12 @@ class TestTier4PDFCompilationAndIntegration(unittest.TestCase):
         is_valid, status, errors = validate_pdf_file(str(pdf_file))
         self.assertTrue(is_valid, f"PDF failed validation: {errors}")
         self.assertTrue(status.get("kdp_margins_valid"), f"KDP Margin violations detected in {pdf_file.name}: {errors}")
+        stats = status.get("kdp_margin_stats")
+        self.assertIsNotNone(stats, "kdp_margin_stats must be provided in status")
+        self.assertGreaterEqual(stats["min_gutter_in"], 0.625, f"Gutter margin too small: {stats['min_gutter_in']} in")
+        self.assertGreaterEqual(stats["min_outside_in"], 0.250, f"Outside margin too small: {stats['min_outside_in']} in")
+        self.assertGreaterEqual(stats["min_top_in"], 0.250, f"Top margin too small: {stats['min_top_in']} in")
+        self.assertGreaterEqual(stats["min_bottom_in"], 0.250, f"Bottom margin too small: {stats['min_bottom_in']} in")
 
     def test_kdp_margins_adversarial_rejection_of_insufficient_gutter(self):
         """Validator must adversarially reject a PDF whose gutter / inside margin is below KDP's 0.625\" minimum."""
@@ -507,6 +513,97 @@ class TestTier4PDFCompilationAndIntegration(unittest.TestCase):
             is_valid, viols = check_kdp_print_margins(pdf_path)
             self.assertFalse(is_valid, "check_kdp_print_margins must flag insufficient 10mm inside gutter")
             self.assertTrue(any("Gutter margin violation" in v for v in viols), f"Expected gutter violation, got: {viols}")
+
+    def test_kdp_margins_adversarial_rejection_of_insufficient_gutter_even_page(self):
+        """Validator must adversarially reject a PDF whose gutter violation occurs on an even/verso page."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            typ_path = os.path.join(tmpdir, "insufficient_gutter_p2.typ")
+            pdf_path = os.path.join(tmpdir, "insufficient_gutter_p2.pdf")
+
+            typ_content = (
+                '#set page(paper: "us-trade", margin: (inside: 16.5mm, outside: 10mm, top: 1.8cm, bottom: 1.8cm))\n'
+                '#set text(size: 10pt)\n'
+                'Page one recto content safe.\n'
+                '#pagebreak()\n'
+                '#set page(margin: (inside: 8mm, outside: 16.5mm))\n'
+                '#align(right)[Verso page two text touching inside gutter margin on right.]\n'
+            )
+            with open(typ_path, "w", encoding="utf-8") as f:
+                f.write(typ_content)
+
+            compile_res = subprocess.run(["typst", "compile", typ_path, pdf_path], capture_output=True, text=True)
+            self.assertEqual(compile_res.returncode, 0)
+
+            is_valid, viols = check_kdp_print_margins(pdf_path)
+            self.assertFalse(is_valid, "check_kdp_print_margins must flag insufficient gutter on page 2")
+            self.assertTrue(any("Gutter margin violation" in v for v in viols), f"Expected Page 2 gutter violation, got: {viols}")
+
+    def test_kdp_margins_adversarial_rejection_of_insufficient_outside_margin(self):
+        """Validator must adversarially reject a PDF whose outside margin is below KDP's 0.25\" minimum."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            typ_path = os.path.join(tmpdir, "insufficient_outside.typ")
+            pdf_path = os.path.join(tmpdir, "insufficient_outside.pdf")
+
+            # 4mm outside margin is ~0.157 in, well below 0.25 in
+            typ_content = (
+                '#set page(paper: "us-trade", margin: (inside: 16.5mm, outside: 4mm, top: 1.8cm, bottom: 1.8cm))\n'
+                '#set text(size: 10pt)\n'
+                '#align(right)[This text is aligned strictly to the 4mm outside edge.]\n'
+            )
+            with open(typ_path, "w", encoding="utf-8") as f:
+                f.write(typ_content)
+
+            compile_res = subprocess.run(["typst", "compile", typ_path, pdf_path], capture_output=True, text=True)
+            self.assertEqual(compile_res.returncode, 0)
+
+            is_valid, viols = check_kdp_print_margins(pdf_path)
+            self.assertFalse(is_valid, "check_kdp_print_margins must flag insufficient 4mm outside margin")
+            self.assertTrue(any("Outside margin violation" in v for v in viols), f"Expected outside margin violation, got: {viols}")
+
+    def test_kdp_margins_adversarial_rejection_of_insufficient_top_margin(self):
+        """Validator must adversarially reject a PDF whose top margin is below KDP's 0.25\" minimum."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            typ_path = os.path.join(tmpdir, "insufficient_top.typ")
+            pdf_path = os.path.join(tmpdir, "insufficient_top.pdf")
+
+            # 3mm top margin is ~0.118 in, well below 0.25 in
+            typ_content = (
+                '#set page(paper: "us-trade", margin: (inside: 16.5mm, outside: 10mm, top: 3mm, bottom: 1.8cm))\n'
+                '#set text(size: 10pt)\n'
+                'Text right at top edge.\n'
+            )
+            with open(typ_path, "w", encoding="utf-8") as f:
+                f.write(typ_content)
+
+            compile_res = subprocess.run(["typst", "compile", typ_path, pdf_path], capture_output=True, text=True)
+            self.assertEqual(compile_res.returncode, 0)
+
+            is_valid, viols = check_kdp_print_margins(pdf_path)
+            self.assertFalse(is_valid, "check_kdp_print_margins must flag insufficient 3mm top margin")
+            self.assertTrue(any("Top margin violation" in v for v in viols), f"Expected top margin violation, got: {viols}")
+
+    def test_kdp_margins_adversarial_rejection_of_insufficient_bottom_margin(self):
+        """Validator must adversarially reject a PDF whose bottom margin is below KDP's 0.25\" minimum."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            typ_path = os.path.join(tmpdir, "insufficient_bottom.typ")
+            pdf_path = os.path.join(tmpdir, "insufficient_bottom.pdf")
+
+            # 3mm bottom margin is ~0.118 in, well below 0.25 in
+            typ_content = (
+                '#set page(paper: "us-trade", margin: (inside: 16.5mm, outside: 10mm, top: 1.8cm, bottom: 3mm))\n'
+                '#set text(size: 10pt)\n'
+                '#v(580pt)\n'
+                'Text right at bottom edge.\n'
+            )
+            with open(typ_path, "w", encoding="utf-8") as f:
+                f.write(typ_content)
+
+            compile_res = subprocess.run(["typst", "compile", typ_path, pdf_path], capture_output=True, text=True)
+            self.assertEqual(compile_res.returncode, 0)
+
+            is_valid, viols = check_kdp_print_margins(pdf_path)
+            self.assertFalse(is_valid, "check_kdp_print_margins must flag insufficient 3mm bottom margin")
+            self.assertTrue(any("Bottom margin violation" in v for v in viols), f"Expected bottom margin violation, got: {viols}")
 
     def test_author_bio_humble_framing(self):
         """Author profile must frame Satya Prakash humbly (learner/student mentor, not a master of everything)."""
