@@ -21,6 +21,19 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+# Add project root to sys.path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+try:
+    from scripts.validate_question_bank import check_kdp_print_margins
+except ImportError:
+    try:
+        from validate_question_bank import check_kdp_print_margins
+    except ImportError:
+        check_kdp_print_margins = None
+
 # ---------------------------------------------------------------------------
 # Subject and Topic Bilingual Mapping
 # ---------------------------------------------------------------------------
@@ -460,6 +473,15 @@ def verify_pdf_output(pdf_path: str) -> Dict[str, Any]:
         pass
 
     result["pages"] = get_pdf_page_count(pdf_path)
+
+    if check_kdp_print_margins:
+        kdp_ok, kdp_viols = check_kdp_print_margins(pdf_path)
+        result["kdp_margins_valid"] = kdp_ok
+        result["kdp_violations"] = kdp_viols
+    else:
+        result["kdp_margins_valid"] = None
+        result["kdp_violations"] = []
+
     return result
 
 
@@ -584,8 +606,11 @@ def main(argv: Optional[List[str]] = None) -> int:
     print(f"    • Header Valid  : {verif['valid_magic']} (%PDF-)")
     print(f"    • Trailer Valid : {verif['valid_trailer']} (%%EOF)")
     print(f"    • Total Pages   : {verif['pages']}")
+    if verif.get("kdp_margins_valid") is not None:
+        kdp_status_str = "Compliant ✅ (Gutter >= 0.625\", Outside/Top/Bottom >= 0.25\")" if verif["kdp_margins_valid"] else "FAILED ❌"
+        print(f"    • KDP Margins   : {kdp_status_str}")
 
-    if not verif["exists"] or not verif["valid_magic"] or not verif["valid_trailer"] or verif["size_bytes"] < 1000:
+    if not verif["exists"] or not verif["valid_magic"] or not verif["valid_trailer"] or verif["size_bytes"] < 1000 or verif.get("kdp_margins_valid") is False:
         print("❌ PDF verification failed!")
         return 1
 

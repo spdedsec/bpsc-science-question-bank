@@ -30,6 +30,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from scripts.validate_question_bank import (
     DEFAULT_MIN_QUESTIONS,
     VALID_SUBJECTS,
+    check_kdp_print_margins,
     check_mcq_distractors,
     run_validation,
     validate_pdf_file,
@@ -435,7 +436,7 @@ class TestTier4PDFCompilationAndIntegration(unittest.TestCase):
             pdf_path = os.path.join(tmpdir, "test.pdf")
 
             typ_content = (
-                '#set page(paper: "us-trade", margin: (x: 1.3cm, top: 1.8cm, bottom: 1.8cm))\n'
+                '#set page(paper: "us-trade", margin: (inside: 16.5mm, outside: 9.5mm, top: 1.8cm, bottom: 1.8cm))\n'
                 '#set text(font: ("Liberation Sans", "Noto Sans Devanagari"), size: 9.5pt)\n'
                 '= BPSC General Science / सामान्य विज्ञान\n'
                 'Q: What is the unit of power in the International System of Units (SI)?\n'
@@ -461,6 +462,7 @@ class TestTier4PDFCompilationAndIntegration(unittest.TestCase):
             self.assertGreater(status["size_bytes"], 1000)
             if status.get("page_size"):
                 self.assertIn("432 x 648 pts", status["page_size"], "Compiled PDF must have 6\"x9\" trade dimensions (432x648 pts)")
+            self.assertTrue(status.get("kdp_margins_valid"), f"KDP margins should be valid: {errors}")
 
     def test_pdf_trade_paper_dimensions(self):
         """Live PDF must strictly match 6\" × 9\" US Trade paperback format (432 × 648 pt)."""
@@ -472,6 +474,39 @@ class TestTier4PDFCompilationAndIntegration(unittest.TestCase):
         self.assertTrue(is_valid, f"PDF failed validation: {errors}")
         if status.get("page_size"):
             self.assertIn("432 x 648 pts", status["page_size"], f"Expected 432 x 648 pts, got {status.get('page_size')}")
+
+    def test_kdp_print_paperback_margins(self):
+        """Live PDF must strictly satisfy Amazon KDP Print safe zones (gutter >= 0.625\", outside/top/bottom >= 0.25\")."""
+        pdf_file = PROJECT_ROOT / "bpsc_science_question_bank.pdf"
+        if not pdf_file.exists():
+            self.skipTest("bpsc_science_question_bank.pdf does not exist yet.")
+
+        is_valid, status, errors = validate_pdf_file(str(pdf_file))
+        self.assertTrue(is_valid, f"PDF failed validation: {errors}")
+        self.assertTrue(status.get("kdp_margins_valid"), f"KDP Margin violations detected in {pdf_file.name}: {errors}")
+
+    def test_kdp_margins_adversarial_rejection_of_insufficient_gutter(self):
+        """Validator must adversarially reject a PDF whose gutter / inside margin is below KDP's 0.625\" minimum."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            typ_path = os.path.join(tmpdir, "insufficient_gutter.typ")
+            pdf_path = os.path.join(tmpdir, "insufficient_gutter.pdf")
+
+            # 10mm inside gutter is ~0.394 in, which is well below KDP 0.625 in threshold
+            typ_content = (
+                '#set page(paper: "us-trade", margin: (inside: 10mm, outside: 10mm, top: 1.8cm, bottom: 1.8cm))\n'
+                '#set text(size: 10pt)\n'
+                '= Section Heading\n'
+                'This paragraph has text right next to the 10mm inside gutter, which must fail KDP validation.\n'
+            )
+            with open(typ_path, "w", encoding="utf-8") as f:
+                f.write(typ_content)
+
+            compile_res = subprocess.run(["typst", "compile", typ_path, pdf_path], capture_output=True, text=True)
+            self.assertEqual(compile_res.returncode, 0)
+
+            is_valid, viols = check_kdp_print_margins(pdf_path)
+            self.assertFalse(is_valid, "check_kdp_print_margins must flag insufficient 10mm inside gutter")
+            self.assertTrue(any("Gutter margin violation" in v for v in viols), f"Expected gutter violation, got: {viols}")
 
     def test_author_bio_humble_framing(self):
         """Author profile must frame Satya Prakash humbly (learner/student mentor, not a master of everything)."""

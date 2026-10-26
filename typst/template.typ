@@ -16,7 +16,8 @@
 
   set page(
     paper: "us-trade", // Standard 6" × 9" (152.4mm × 228.6mm / 432pt × 648pt)
-    margin: (x: 1.3cm, top: 1.8cm, bottom: 1.8cm),
+    // Amazon KDP Paperback (301-500 pages): inside gutter >= 0.625" (15.875mm), outside/top/bottom >= 0.25" (6.35mm)
+    margin: (inside: 16.5mm, outside: 9.5mm, top: 1.8cm, bottom: 1.8cm),
     header: context {
       let page-num = counter(page).get().first()
       let last-page = counter(page).final().first()
@@ -79,7 +80,7 @@
       width: 100%,
       height: 100%,
       fill: rgb("#0b132b"),
-      inset: (x: 20pt, top: 26pt, bottom: 22pt),
+      inset: (left: 50pt, right: 26pt, top: 26pt, bottom: 24pt),
       [
         #align(center)[
           #box(fill: rgb("#1c2541"), inset: (x: 10pt, y: 5pt), radius: 3pt, stroke: 0.8pt + rgb("#38bdf8"))[
@@ -777,7 +778,7 @@
       width: 100%,
       height: 100%,
       fill: rgb("#0b132b"),
-      inset: (x: 20pt, top: 26pt, bottom: 22pt),
+      inset: (left: 26pt, right: 50pt, top: 26pt, bottom: 24pt),
       [
         #align(center)[
           #text(size: 16pt, weight: "bold", fill: rgb("#38bdf8"))[BPSC General Science Question Bank]

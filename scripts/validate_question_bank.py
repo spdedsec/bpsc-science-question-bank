@@ -310,9 +310,85 @@ def validate_question_files(
 # PDF Validation
 # ---------------------------------------------------------------------------
 
+def check_kdp_print_margins(
+    pdf_path: str,
+    min_gutter_in: float = 0.625,
+    min_outside_in: float = 0.25,
+    min_top_in: float = 0.25,
+    min_bottom_in: float = 0.25,
+) -> Tuple[Optional[bool], List[str]]:
+    """
+    Verify that all text elements in the PDF respect Amazon KDP Print safe zones:
+    - Gutter (inside margin) >= 0.625" (15.875mm / 45.0 pt)
+    - Outside margin >= 0.25" (6.35mm / 18.0 pt)
+    - Top & Bottom margins >= 0.25" (6.35mm / 18.0 pt)
+    Returns (is_compliant, list_of_violations).
+    """
+    try:
+        res = subprocess.run(
+            ["pdftotext", "-bbox", pdf_path, "-"],
+            capture_output=True,
+            text=True,
+            timeout=25,
+        )
+        if res.returncode != 0:
+            return None, ["pdftotext execution failed"]
+    except (FileNotFoundError, subprocess.SubprocessError):
+        return None, []
+
+    page_chunks = res.stdout.split("<page ")
+    if len(page_chunks) <= 1:
+        return True, []
+
+    min_gutter_pt = min_gutter_in * 72.0 - 0.2
+    min_outside_pt = min_outside_in * 72.0 - 0.2
+    min_top_pt = min_top_in * 72.0 - 0.2
+    min_bottom_pt = min_bottom_in * 72.0 - 0.2
+
+    violations: List[str] = []
+
+    for p_num, chunk in enumerate(page_chunks[1:], start=1):
+        m_dim = re.search(r'width="([0-9.]+)"\s+height="([0-9.]+)"', chunk)
+        if not m_dim:
+            continue
+        p_w = float(m_dim.group(1))
+        p_h = float(m_dim.group(2))
+        is_odd = (p_num % 2 == 1)
+
+        words = re.findall(
+            r'<word xMin="([0-9.]+)" yMin="([0-9.]+)" xMax="([0-9.]+)" yMax="([0-9.]+)">([^<]+)</word>',
+            chunk,
+        )
+        for xmin, ymin, xmax, ymax, w in words:
+            x1, y1, x2, y2 = float(xmin), float(ymin), float(xmax), float(ymax)
+
+            if y1 < min_top_pt:
+                violations.append(f"Page {p_num}: Top margin violation ({y1:.2f}pt < {min_top_pt:.2f}pt) on '{w}'")
+            if (p_h - y2) < min_bottom_pt:
+                violations.append(f"Page {p_num}: Bottom margin violation ({p_h - y2:.2f}pt < {min_bottom_pt:.2f}pt) on '{w}'")
+
+            if is_odd:
+                dist_gutter = x1
+                dist_outside = p_w - x2
+            else:
+                dist_gutter = p_w - x2
+                dist_outside = x1
+
+            if dist_gutter < min_gutter_pt:
+                violations.append(
+                    f"Page {p_num}: Gutter margin violation ({dist_gutter:.2f}pt < {min_gutter_pt:.2f}pt, odd={is_odd}) on '{w}'"
+                )
+            if dist_outside < min_outside_pt:
+                violations.append(
+                    f"Page {p_num}: Outside margin violation ({dist_outside:.2f}pt < {min_outside_pt:.2f}pt) on '{w}'"
+                )
+
+    return (len(violations) == 0), violations
+
+
 def validate_pdf_file(pdf_path: str, min_size_bytes: int = 1000) -> Tuple[bool, Dict[str, Any], List[str]]:
     """
-    Verify compiled PDF file existence, minimum size, PDF header magic bytes, and trailer EOF.
+    Verify compiled PDF file existence, minimum size, PDF header magic bytes, trailer EOF, and KDP margins.
     Returns (is_valid, status_dict, errors).
     """
     status: Dict[str, Any] = {
@@ -322,6 +398,7 @@ def validate_pdf_file(pdf_path: str, min_size_bytes: int = 1000) -> Tuple[bool, 
         "valid_magic": False,
         "valid_trailer": False,
         "text_extractable": None,
+        "kdp_margins_valid": None,
     }
     errors: List[str] = []
 
@@ -390,6 +467,16 @@ def validate_pdf_file(pdf_path: str, min_size_bytes: int = 1000) -> Tuple[bool, 
         # pdftotext not installed or failed, not fatal if header is valid
         pass
 
+    # Amazon KDP Print safe margin check (gutter >= 0.625", outside/top/bottom >= 0.25")
+    kdp_ok, kdp_viols = check_kdp_print_margins(pdf_path)
+    if kdp_ok is not None:
+        status["kdp_margins_valid"] = kdp_ok
+        if not kdp_ok:
+            for viol in kdp_viols[:5]:
+                errors.append(f"KDP Margin violation: {viol}")
+            if len(kdp_viols) > 5:
+                errors.append(f"... and {len(kdp_viols) - 5} additional KDP margin violations in PDF")
+
     is_valid = len(errors) == 0
     return is_valid, status, errors
 
@@ -450,6 +537,9 @@ def format_report_text(report: ValidationReport, show_details: bool = True) -> s
         lines.append(f"  • Trailer Valid: {report.pdf_status.get('valid_trailer')}")
         if report.pdf_status.get("text_extractable") is not None:
             lines.append(f"  • Text Extract : {report.pdf_status.get('text_extractable')}")
+        if report.pdf_status.get("kdp_margins_valid") is not None:
+            kdp_disp = "Compliant ✅ (Gutter >= 0.625\", Outside/Top/Bottom >= 0.25\")" if report.pdf_status["kdp_margins_valid"] else "VIOLATION ❌"
+            lines.append(f"  • KDP Margins  : {kdp_disp}")
 
     if report.errors:
         lines.append("=" * 72)
