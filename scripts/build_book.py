@@ -252,10 +252,9 @@ def generate_typst_document(
 ) -> str:
     """
     Generate the complete, publication-grade Typst document source.
-    Incorporates full publication apparatus:
-    - Eye-catching Front Cover
+    Incorporates full publication apparatus (KDP interior manuscript format):
     - Half Title Page
-    - Full Title Page (Compiled by Satya Prakash)
+    - Full Title Page (Authored and Compiled by Satya Prakash)
     - Copyright & Metadata Page
     - Compiler's Foreword / Note by Satya Prakash
     - Exam Blueprint & Weightage Table
@@ -264,7 +263,6 @@ def generate_typst_document(
     - Subject Chapters & Stacked Bilingual Question Cards
     - Quick Revision Appendix (Constants, Instruments, Vitamins, Bihar facts)
     - About the Author Page
-    - Back Cover
     """
     lines: List[str] = []
 
@@ -277,23 +275,19 @@ def generate_typst_document(
     lines.append(")")
     lines.append("")
 
-    # 2. Front Cover
-    lines.append("#book-cover(")
-    lines.append('  edition: "2026 Comprehensive Edition",')
-    lines.append('  exam-coverage: "56th–59th to 70th BPSC CCE Prelims",')
-    lines.append(f"  author: {typst_str(author)},")
-    lines.append(")")
-    lines.append("")
-
-    # 3. Half Title Page
+    # 2. Front Matter starts with Half Title Page (Front Cover omitted for KDP interior manuscript)
     lines.append(f"#half-title-page(author: {typst_str(author)})")
     lines.append("")
 
-    # 4. Full Title Page
+    # 3. Half Title Verso Page (Series Notice, Page 2)
+    lines.append("#half-title-verso-page()")
+    lines.append("")
+
+    # 4. Full Title Page (Page 3, Recto)
     lines.append(f"#full-title-page(author: {typst_str(author)}, edition: \"2026 Comprehensive Edition\")")
     lines.append("")
 
-    # 5. Copyright / Publication Metadata Page
+    # 5. Copyright / Publication Metadata Page (Page 4, Verso)
     lines.append(f"#copyright-page(author: {typst_str(author)})")
     lines.append("")
 
@@ -383,10 +377,6 @@ def generate_typst_document(
 
     # 10. About the Author Page
     lines.append(f"#about-author-page(author: {typst_str(author)})")
-    lines.append("")
-
-    # 11. Book Back Cover
-    lines.append(f"#book-back-cover(author: {typst_str(author)}, edition: \"2026 Comprehensive Edition\")")
     lines.append("")
 
     return "\n".join(lines)

@@ -126,12 +126,12 @@ The primary output artifact is `bpsc_science_question_bank.pdf`, generated direc
 └───────────────────────┴────────────────────────────────────────────────┘
 ```
 
-### Complete 13-Section Publication Apparatus
-1. **Front Cover**: High-impact, full-bleed graphic cover featuring book title, 68th–70th CCE pattern badges, syllabus scope, and prominent author/compiler credit: **"Authored and Compiled by Satya Prakash"**.
-2. **Half Title Page**: Formal pre-title page.
-3. **Full Title Page**: Publisher and bibliographic metadata including edition, ISBN reservation, and author credentials.
+### Complete Publication Interior Apparatus (Amazon KDP Print Manuscript)
+1. **Half Title Page**: Formal pre-title page featuring title and author attribution: **"Authored and Compiled by Satya Prakash"**.
+2. **Series Verso Page**: Series metadata and publication notice.
+3. **Full Title Page**: Publisher and bibliographic metadata including edition and author credentials.
 4. **Copyright & Publication Metadata**: Cataloging-in-publication data, copyright notice, legal disclaimers, open educational mission.
-5. **Preface / प्राक्कथन**: Extended foreword by compiler **Satya Prakash** outlining pedagogical motivations, BPSC pattern shifts, negative marking strategy, and study recommendations.
+5. **Preface / प्राक्कथन**: Extended foreword by author/compiler **Satya Prakash** outlining pedagogical motivations, BPSC pattern shifts, negative marking strategy, and study recommendations.
 6. **BPSC Exam Blueprint & Trend Analysis**: Analytical charts, historical science question weightage (56th–59th to 70th CCE), subject breakdown percentages, and difficulty progression.
 7. **Cognitive Learning Strategies & Memory Mastery**: In-depth psychological guide covering the Testing Effect, 1-3-7-21 spaced repetition algorithm, science mnemonic hooks, 1/3rd negative marking decision matrix, and cortisol/anxiety regulation.
 8. **Table of Contents / विषय सूची**: Complete hierarchically indented outline (`#outline(indent: auto, depth: 2)`) with automated Roman-to-Arabic page numbering.
@@ -143,7 +143,8 @@ The primary output artifact is `bpsc_science_question_bank.pdf`, generated direc
     - Table 3: Vitamins, Coenzymes, Dietary Sources & Pathological Syndromes.
     - Table 4: Key Public Health Indicators & Environmental Standards of Bihar.
 12. **About the Author Page**: Candid, humble note from Satya Prakash—stating plainly that he is not a master of everything, but compiled this high-yield resource genuinely to assist fellow students and aspirants.
-13. **Back Cover**: Monograph synopsis, key pedagogical features, target competitive examinations (BPSC CCE, BPSC CDPO, BPSC Assistant Audit Officer, Bihar SI, BSSC CGL), barcode, and publishing colophon.
+
+*(Note: In accordance with Amazon KDP print specifications, the standalone front and back covers have been excised from the interior manuscript PDF so it can be uploaded directly as the interior block, while the outer cover is uploaded separately via KDP Cover Calculator/Creator).*
 
 ---
 

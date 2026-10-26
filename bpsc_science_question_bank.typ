@@ -5,13 +5,9 @@
   author: "Satya Prakash",
 )
 
-#book-cover(
-  edition: "2026 Comprehensive Edition",
-  exam-coverage: "56th–59th to 70th BPSC CCE Prelims",
-  author: "Satya Prakash",
-)
-
 #half-title-page(author: "Satya Prakash")
+
+#half-title-verso-page()
 
 #full-title-page(author: "Satya Prakash", edition: "2026 Comprehensive Edition")
 
@@ -8222,5 +8218,3 @@
 #revision-appendix()
 
 #about-author-page(author: "Satya Prakash")
-
-#book-back-cover(author: "Satya Prakash", edition: "2026 Comprehensive Edition")

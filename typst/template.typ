@@ -178,6 +178,21 @@
 }
 
 // ---------------------------------------------------------------------------
+// 2b. Half Title Verso Page (Series Notice, Page 2)
+// ---------------------------------------------------------------------------
+#let half-title-verso-page() = {
+  align(center + horizon)[
+    #text(size: 8pt, fill: rgb("#64748b"), style: "italic")[
+      BPSC Civil Services Examination Preliminary Reference Monograph Series\
+      \
+      Published for Academic & Competitive Examination Preparation\
+      Patna • New Delhi
+    ]
+  ]
+  pagebreak()
+}
+
+// ---------------------------------------------------------------------------
 // 3. Full Title Page (6" × 9" Trade Paperback)
 // ---------------------------------------------------------------------------
 #let full-title-page(
